@@ -6,10 +6,10 @@ namespace Vision.Interfaces
 {
 	public interface IAllClothes
 	{
-		IEnumerable<Clothes> Goods { get; }
+		IEnumerable<Product> Goods { get; }
 
-		IEnumerable<Clothes> getFavClothes { get; set; }
+		IEnumerable<Product> getFavClothes { get; set; }
 
-		Clothes GetClothes(int clothesID);
+		Product GetClothes(int clothesID);
 	}
 }

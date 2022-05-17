@@ -6,6 +6,6 @@ namespace Vision.Interfaces
 {
 	public interface ICart
 	{
-		IEnumerable<Clothes> GetClothes { get; }
+		IEnumerable<Product> GetClothes { get; }
 	}
 }

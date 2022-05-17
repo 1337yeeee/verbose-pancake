@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Vision.Interfaces;
+using Vision.Models;
 
 namespace Vision.Controllers {
 	public class ClothesController : Controller {

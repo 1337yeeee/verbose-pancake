@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vision.Storage {
 	public class Category {
-		public int id;
-		public string catName;
+
+		[Key]
+		public Guid id;
+		public string name;
 		public string sizeTable;
-		public List<Clothes> catClothes;
+
+		public List<Product> catClothes;
 	}
 }
