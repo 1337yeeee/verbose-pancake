@@ -6,10 +6,11 @@ namespace Vision.Storage {
 	public class Category {
 
 		[Key]
-		public Guid id;
-		public string name;
-		public string sizeTable;
+		public Guid id { get; set; }
 
-		public List<Product> catClothes;
+		public string name { get; set; }
+		public string sizeTable { get; set; }
+
+		public List<Product> clothes { get; set; }
 	}
 }

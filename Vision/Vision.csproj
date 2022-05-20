@@ -18,6 +18,9 @@
     <None Remove="JSON" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Views\Temp\" />
+    <None Remove="Storage\img\" />
+    <None Remove="Data\Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="proto\" />
@@ -25,7 +28,10 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Data\" />
     <Folder Include="mocks\" />
-    <Folder Include="Views\Clothes\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Temp\" />
+    <Folder Include="Storage\img\" />
+    <Folder Include="Data\Repository\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />

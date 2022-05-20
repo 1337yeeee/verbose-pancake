@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Vision.Storage;
 
 namespace Vision {
 	public class DbSead {
 
-		static void Create(AppDbContext context) {
+		public static void Create(DbContext context) {
 			Brand balenca = new Brand {
 				name = "Balenciaga",
 				id = Guid.NewGuid(),
@@ -13,11 +14,11 @@ namespace Vision {
 				name = "sneaker",
 				id = Guid.NewGuid(),
 			};
-			Brand brand2 = new Brand {
+			Brand danila = new Brand {
 				name = "Danila",
 				id = Guid.NewGuid(),
 			};
-			Category category2 = new Category {
+			Category tshirt = new Category {
 				name = "tshirt",
 				id = Guid.NewGuid(),
 			};
@@ -35,5 +36,34 @@ namespace Vision {
 				category = sneaker,
 				categoryID = sneaker.id,
 			};
+
+			Product item2 = new Product {
+				id = Guid.NewGuid(),
+				brand = danila,
+				brandID = danila.id,
+				category = tshirt,
+				categoryID = tshirt.id,
+				name = "Krasivaya",
+				price = 50000,
+				img = "img/krasivaya",
+				isFav = true,
+				link = "danila.com",
+				rating = 4.6,
+			};
+			balenca.clothes = new List<Product>();
+			balenca.clothes.Add(item1);
+			sneaker.clothes = new List<Product>();
+			sneaker.clothes.Add(item1);
+
+			danila.clothes = new List<Product>();
+			danila.clothes.Add(item2);
+			tshirt.clothes = new List<Product>();
+			tshirt.clothes.Add(item2);
+
+			context.Products.Add(item1);
+			context.Products.Add(item2);
+
+			context.SaveChanges();
+		}
 	}
 }

@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Vision.Storage {
-	public class Brand {
+namespace Vision.Models {
+	public class Test {
 
 		[Key]
 		public Guid id { get; set; }
-
 		public string name { get; set; }
+		public double price { get; set; }
 
-		public List<Product> clothes { get; set; }
+		public Test() {
 
-		public Brand() {
 		}
 	}
 }

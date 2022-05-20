@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vision.Storage
 {
@@ -14,7 +15,7 @@ namespace Vision.Storage
 		public string img { get; set; }
 		public bool isFav { get; set; }
 		public double rating { get; set; }
-
+		
 		public Category category { get; set; }
 		public Guid categoryID { get; set; }
 
