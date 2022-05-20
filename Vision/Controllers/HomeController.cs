@@ -25,7 +25,7 @@ namespace Vision.Controllers
 		public IActionResult Index()
 		{
 			var db = new DbContext();
-			var product = db.Tests.ToList();
+			var product = db.Articles.ToList();
 			var model = new ViewModel { Tests = product };
 			return View(model);
 		}
