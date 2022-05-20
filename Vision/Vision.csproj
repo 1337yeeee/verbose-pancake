@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <None Remove="proto\" />
-    <None Remove="Storage\" />
     <None Remove="Interfaces\" />
     <None Remove="EntityFramework" />
     <None Remove="Data\" />
@@ -19,18 +18,15 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Views\Temp\" />
-    <None Remove="Storage\img\" />
     <None Remove="Data\Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="proto\" />
-    <Folder Include="Storage\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Data\" />
     <Folder Include="mocks\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Temp\" />
-    <Folder Include="Storage\img\" />
     <Folder Include="Data\Repository\" />
   </ItemGroup>
   <ItemGroup>

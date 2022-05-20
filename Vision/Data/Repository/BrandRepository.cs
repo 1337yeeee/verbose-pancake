@@ -17,11 +17,10 @@ namespace Vision.Data.Repository {
 
 		public async Task<IList<Brand>> allBrands() => await _context.Brands.ToListAsync();
 
-		public async Task createBrand(string name, string disc, List<Guid> clothes) {
+		public async Task createBrand(string name, string disc) {
 			var brand = new Brand {
 				name = name,
-				disc = disc,
-				clothesID = clothes
+				disc = disc
 			};
 			_context.Brands.Add(brand);
 

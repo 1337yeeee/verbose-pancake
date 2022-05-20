@@ -1,13 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@*@model ViewModel
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Empty</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
-</body>
-</html>
+<form method="post" asp-controller="Home" asp-action="Index">
+    <input type="text" name="name" />
+    <input type="text" name="price" />
+    <input type="submit" value="enter" />
+</form>
+
+<table>
+    @foreach (var a in Model.Tests)
+    {
+        <tr>
+            <td>@a.id</td>
+            <td>@a.name</td>
+            <td>@a.price</td>
+        </tr>
+    }
+</table>*@

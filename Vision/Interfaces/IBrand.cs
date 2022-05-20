@@ -8,7 +8,7 @@ namespace Vision.Interfaces {
 
 		Task<IList<Brand>> allBrands();
 
-		Task createBrand(string name, string disc, List<Guid> clothes);
+		Task createBrand(string name, string disc);
 
 		Task delete(Guid id);
 	}

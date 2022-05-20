@@ -17,11 +17,10 @@ namespace Vision.Data.Repository {
 
 		public async Task<IList<Author>> allAuthors() => await _context.Authors.ToListAsync();
 
-		public async Task createAuthor(string name, List<Guid> articles, double rating) {
+		public async Task createAuthor(string name) {
 			var author = new Author {
 				name = name,
-				articles = articles,
-				rating = rating
+				rating = 0
 			};
 			_context.Authors.Add(author);
 

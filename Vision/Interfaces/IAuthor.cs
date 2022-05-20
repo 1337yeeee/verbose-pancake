@@ -7,7 +7,7 @@ namespace Vision.Interfaces {
 	public interface IAuthor {
 		Task<IList<Author>> allAuthors();
 
-		Task createAuthor(string name, List<Guid> articles, double rating);
+		Task createAuthor(string name);
 
 		Task delete(Guid id);
 	}

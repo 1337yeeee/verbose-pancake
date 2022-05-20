@@ -8,7 +8,7 @@ namespace Vision.Interfaces {
 
 		Task<IList<Category>> allCategories();
 
-		Task createCategory(string name, string sizeTable, List<Guid> clothes);
+		Task createCategory(string name, string sizeTable);
 
 		Task delete(Guid id);
 	}

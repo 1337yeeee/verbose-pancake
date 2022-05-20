@@ -13,7 +13,6 @@ namespace Vision.Controllers {
 		public ProductController(DbContext context) {
 			//_allClothes = iAllClothes;
 			//_allCategories = iCategory;
-			DbSead.Create(context);
 			_context = context;
 		}
 

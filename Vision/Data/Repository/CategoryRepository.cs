@@ -7,9 +7,9 @@ using Vision.Interfaces;
 using Vision.Models;
 
 namespace Vision.Data.Repository {
-	public struct CategoryRepository : ICategory {
+	public class CategoryRepository : ICategory {
 
-		public readonly DbContext _context;
+		private readonly DbContext _context;
 
 		public CategoryRepository(DbContext context) {
 			_context = context;
@@ -17,11 +17,10 @@ namespace Vision.Data.Repository {
 
 		public async Task<IList<Category>> allCategories() => await _context.Categories.ToListAsync();
 
-		public async Task createCategory(string name, string sizeTable, List<Guid> clothes) {
+		public async Task createCategory(string name, string sizeTable) {
 			var category = new Category {
 				name = name,
 				sizeTable = sizeTable,
-				clothes = clothes
 			};
 			_context.Categories.Add(category);
 

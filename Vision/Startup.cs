@@ -8,10 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Vision.Data;
 using Vision.Data.Repository;
 using Vision.Interfaces;
-//using Vision.mocks;
 
 namespace Vision
 {
@@ -27,7 +25,11 @@ namespace Vision
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddMvc();
 			services.AddControllersWithViews();
-			services.AddTransient<ITest, TestRepository>();
+			services.AddTransient<IArticle, ArticleReposytory>();
+			services.AddTransient<IProduct, ProductRepository>();
+			services.AddTransient<ICategory, CategoryRepository>();
+			services.AddTransient<IBrand, BrandRepository>();
+			services.AddTransient<IAuthor, AuthorRepository>();
 			services.AddDbContext<DbContext>();
 		}
 
