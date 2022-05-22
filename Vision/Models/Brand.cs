@@ -10,7 +10,7 @@ namespace Vision.Models {
 
 		public string name { get; set; }
 		public string disc { get; set; }
-		public List<Guid> clothesID { get; set; }
+		public List<Product> clothesID { get; set; }
 
 		public Brand() {
 		}

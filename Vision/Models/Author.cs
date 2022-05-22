@@ -9,7 +9,7 @@ namespace Vision.Models {
 		public Guid id { get; set; }
 
 		public string name { get; set; }
-		public List<Guid> articles { get; set; }
+		public List<Article> articles { get; set; }
 		public double rating { get; set; }
 
 		public Author() {

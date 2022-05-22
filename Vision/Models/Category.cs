@@ -10,7 +10,7 @@ namespace Vision.Models {
 
 		public string name { get; set; }
 		public string sizeTable { get; set; }
-		public List<Guid> clothes { get; set; }
+		public List<Product> clothes { get; set; }
 
 		public Category() {
 		}

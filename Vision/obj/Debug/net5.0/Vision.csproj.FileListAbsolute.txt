@@ -94,3 +94,7 @@
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Product/List.cshtml.g.cs
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Temp/Index.cshtml.g.cs
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/NotFound.cshtml.g.cs
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/Brand.cshtml.g.cs
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/Category.cshtml.g.cs
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/NOTHING.cshtml.g.cs
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/Product.cshtml.g.cs

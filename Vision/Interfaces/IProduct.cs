@@ -8,7 +8,7 @@ namespace Vision.Interfaces {
 
 		Task<IList<Product>> allProducts();
 
-		Task createProduct(string name, double price, string link, string img,
+		Task createProduct(string name, double price, string link, Image img,
 							Guid categoryID, Guid brandID);
 
 		Task delete(Guid id);

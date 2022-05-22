@@ -17,7 +17,7 @@ namespace Vision.Data.Repository {
 
 		public async Task<IList<Product>> allProducts() => await _context.Products.ToListAsync();
 
-		public async Task createProduct(string name, double price, string link, string img, Guid categoryID, Guid brandID) {
+		public async Task createProduct(string name, double price, string link, Image img, Guid categoryID, Guid brandID) {
 			var product = new Product {
 				name = name,
 				price = price,

@@ -1,97 +1,141 @@
 ﻿@model ViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
-<div class="text-center">
-    <h1>Hello!</h1>
-    <p>some thing</p>
-</div>
+@*<div class="text-center">
+        <h1>Hello!</h1>
+        <p>some thing</p>
+    </div>
 
 
-<div class="box">
-    <div class="box-left">
-        <div class="newdata new-brand">
-            <h3>Добавить бренд</h3>
-            <h4>можно здесь</h4>
-            <form method="post" asp-controller="Home" asp-action="ActBrand">
-                <p>Название бренда</p>
-                <input type="text" name="name" required />
-                <p>Описание бренда</p>
-                <input type="text" name="disc" required />
-                <input type="submit" value="enter" />
-            </form>
+    <div class="box">
+        <div class="box-left">
+            <div class="newdata new-brand">
+                <h3>Добавить бренд</h3>
+                <h4>можно здесь</h4>
+                <form method="post" asp-controller="Home" asp-action="ActBrand">
+                    <p>Название бренда</p>
+                    <input type="text" name="name" required />
+                    <p>Описание бренда</p>
+                    <input type="text" name="disc" required />
+                    <input type="submit" value="enter" />
+                </form>
+            </div>
+
+            <div class="newdata new-category">
+                <h3>Добавить категорию</h3>
+                <h4>можно здесь</h4>
+                <form method="post" asp-controller="Home" asp-action="ActCategory">
+                    <p>Название Категории</p>
+                    <input type="text" name="name" required />
+                    <p>Таблица размеров</p>
+                    <input type="text" name="sizeTable" required />
+                    <input type="submit" value="enter" />
+                </form>
+            </div>
         </div>
 
-        <div class="newdata new-category">
-            <h3>Добавить категорию</h3>
-            <h4>можно здесь</h4>
-            <form method="post" asp-controller="Home" asp-action="ActCategory">
-                <p>Название Категории</p>
-                <input type="text" name="name" required />
-                <p>Таблица размеров</p>
-                <input type="text" name="sizeTable" required />
-                <input type="submit" value="enter" />
-            </form>
+        <div class="box-right">
+            <div class="newdata new-product">
+                <h3>Добавить товар</h3>
+                <h4>можно здесь</h4>
+                <form method="post" asp-controller="Home" asp-action="ActProduct">
+                    <p>Название продукта</p>
+                    <input type="text" name="name" required />
+                    <p>Цена</p>
+                    <input type="text" name="price" required />
+                    <p>Ссылка на магазин</p>
+                    <input type="text" name="link" required />
+                    <p>Изображение</p>
+                    <input type="text" name="img" required />
+                    <p>Категория (из списка)</p>
+                    <input type="text" name="categoryName" required list="categoriesList"/>
+                    <datalist id="categoriesList">
+                        @foreach (var a in Model.Categories) {
+                            <option>@a.name</option>
+                        }
+                    </datalist>
+                    <p>Бренд (из списка)</p>
+                    <input type="text" name="brandName" required />!!!!!!
+                    <input type="submit" value="enter" />
+                </form>
+            </div>
         </div>
     </div>
 
-    <div class="box-right">
-        <div class="newdata new-product">
-            <h3>Добавить товар</h3>
-            <h4>можно здесь</h4>
-            <form method="post" asp-controller="Home" asp-action="ActProduct">
-                <p>Название продукта</p>
-                <input type="text" name="name" required />
-                <p>Цена</p>
-                <input type="text" name="price" required />
-                <p>Ссылка на магазин</p>
-                <input type="text" name="link" required />
-                <p>Изображение</p>
-                <input type="text" name="img" required />
-                <p>Категория (из списка)</p>
-                <input type="text" name="categoryName" required list="categoriesList"/>
-                <datalist id="categoriesList">
-                    @foreach (var a in Model.Categories) {
-                        <option>@a.name</option>
-					}
-                </datalist>
-                <p>Бренд (из списка)</p>
-                <input type="text" name="brandName" required />!!!!!!
-                <input type="submit" value="enter" />
-            </form>
+    <div class="box">
+        <div class="box-left">
+            <div class="newdata new-article">
+                <h3>Добавить статью</h3>
+                <h4>можно здесь</h4>
+                <form method="post" asp-controller="Home" asp-action="ActArticle">
+                    <p>Название</p>
+                    <input type="text" name="name" required />
+                    <p>Заголовок</p>
+                    <input type="text" name="header" required />
+                    <p>Автор</p>
+                    <input type="text" name="???" required />author
+                    <p>Ваша статья</p>
+                    <input type="text" name="text" required />
+                    <p>Изображение</p>
+                    <input type="text" name="img" required />
+                    <input type="submit" value="enter" />
+                </form>
+            </div>
         </div>
-    </div>
-</div>
 
-<div class="box">
-    <div class="box-left">
-        <div class="newdata new-article">
-            <h3>Добавить статью</h3>
-            <h4>можно здесь</h4>
-            <form method="post" asp-controller="Home" asp-action="ActArticle">
-                <p>Название</p>
-                <input type="text" name="name" required />
-                <p>Заголовок</p>
-                <input type="text" name="header" required />
-                <p>Автор</p>
-                <input type="text" name="???" required />author
-                <p>Ваша статья</p>
-                <input type="text" name="text" required />
-                <p>Изображение</p>
-                <input type="text" name="img" required />
-                <input type="submit" value="enter" />
-            </form>
+        <div class="box-right">
+            <div class="newdata new-author">
+                <h3>Добавить автора</h3>
+                <h4>можно здесь</h4>
+                <form method="post" asp-controller="Home" asp-action="ActAuthor">
+                    <p>Имя автора</p>
+                    <input type="text" name="name" required />
+                    <input type="submit" value="enter" />
+                </form>
+            </div>
         </div>
-    </div>
+    </div>*@
 
-    <div class="box-right">
-        <div class="newdata new-author">
-            <h3>Добавить автора</h3>
-            <h4>можно здесь</h4>
-            <form method="post" asp-controller="Home" asp-action="ActAuthor">
-                <p>Имя автора</p>
-                <input type="text" name="name" required />
-                <input type="submit" value="enter" />
-            </form>
-        </div>
-    </div>
+
+<form method="post" asp-controller="Home" asp-action="ActAuthor">
+    <input name="name" placeholder="name" />
+    <input name="rating" placeholder="rating" />
+    <button type="submit">Submit</button>
+</form>
+@if (Model != null)
+{
+    @foreach (var author in Model.Authors)
+    {
+        <p>@author.name, @author.rating</p>
+    }
+    <p style="font-size: 48px;">Articles:</p>
+    @foreach(var article in Model.Articles) {
+                    <p>@article.name, @article.header, @article.author: @article.authorID </p>
+				}
+
+}
+
+
+<div class="newdata new-article">
+    <h3>Добавить статью</h3>
+    <h4>можно здесь</h4>
+    <form method="post" asp-controller="Home" asp-action="ActArticle">
+        <p>Название</p>
+        <input type="text" name="name" required />
+        <p>Заголовок</p>
+        <input type="text" name="header" required />
+        <p>Автор</p>
+        <input type="text" name="authorName" required list="categoriesList" />
+        <datalist id="categoriesList">
+            @foreach (var a in Model.Authors)
+            {
+                <option>@a.name</option>
+            }
+        </datalist>
+        <p>Ваша статья</p>
+        <input type="text" name="text" required />
+        <p>Изображение</p>
+        <input type="submit" value="enter" />
+    </form>
 </div>
