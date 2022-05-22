@@ -1,0 +1,27 @@
+﻿@model ViewModel
+
+<div class="newdata new-product">
+    <h3>Добавить товар</h3>
+    <h4>можно здесь</h4>
+    <form method="post" asp-controller="Home" asp-action="ActProduct">
+        <p>Название продукта</p>
+        <input type="text" name="name" required />
+        <p>Цена</p>
+        <input type="text" name="price" required />
+        <p>Ссылка на магазин</p>
+        <input type="text" name="link" required />
+        <p>Изображение</p>
+        <input type="text" name="img" required />
+        <p>Категория (из списка)</p>
+        <input type="text" name="categoryName" required list="categoriesList" />
+        <datalist id="categoriesList">
+            @foreach (var a in Model.Categories)
+            {
+                <option>@a.name</option>
+            }
+        </datalist>
+        <p>Бренд (из списка)</p>
+        <input type="text" name="brandName" required />!!!!!!
+        <input type="submit" value="enter" />
+    </form>
+</div>

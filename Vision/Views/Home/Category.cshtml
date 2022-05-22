@@ -1,0 +1,14 @@
+﻿@model ViewModel
+
+
+<div class="newdata new-category">
+    <h3>Добавить категорию</h3>
+    <h4>можно здесь</h4>
+    <form method="post" asp-controller="Home" asp-action="ActCategory">
+        <p>Название Категории</p>
+        <input type="text" name="name" required />
+        <p>Таблица размеров</p>
+        <input type="text" name="sizeTable" required />
+        <input type="submit" value="enter" />
+    </form>
+</div>
