@@ -62,36 +62,48 @@ namespace Vision.Data.Repository {
 			double priceEnd = 9999999999, string categoryName = null, Category category = null,
 			string brandName = null, Brand brand = null, double ratingStart = 0, double ratingEnd = 5) {
 
-			if (name != null) {
-				return _context.Products.Where(x => x.name == name).ToList();
-			} else if(priceStart != 0 || priceEnd != 9999999999) {
-				if (priceStart >= 0 && priceEnd >= 0) {
-					if (priceStart == 0) {
-						return _context.Products.Where(x => x.price <= priceEnd).ToList();
-					} else if (priceEnd == 9999999999) {
-						return _context.Products.Where(x => x.price >= priceStart).ToList();
-					} else {
-						return _context.Products.Where(x => x.price <= priceEnd && x.price >= priceStart).ToList();
-					}
-				} else return _context.Products.ToList();
-			} else if(categoryName != null) {
-				return _context.Products.Where(x => x.category.name == categoryName).ToList();
-			} else if(category != null) {
-				return _context.Products.Where(x => x.category == category).ToList();
-			} else if(brandName != null) {
-				return _context.Products.Where(x => x.brand.name == brandName).ToList();
-			} else if(brand != null) {
-				return _context.Products.Where(x => x.brand == brand).ToList();
-			} else if (ratingStart != 0 || ratingEnd != 5) {
-				if (ratingStart == 0) {
-					return _context.Products.Where(x => x.rating <= ratingEnd).ToList();
-				} else if (ratingEnd == 0) {
-					return _context.Products.Where(x => x.rating >= ratingStart).ToList();
-				} else {
-					return _context.Products.Where(x => x.rating <= ratingEnd && x.rating >= ratingStart).ToList();
-				}
+			var products = _context.Products.ToList();
+
+			if (name == null || priceStart == 0 || priceEnd == 9999999999 ||
+				categoryName == null || category == null || brandName == null ||
+				brand == null || ratingStart == 0 || ratingEnd == 5) {
+				return products;
 			} else {
-				return _context.Products.ToList();
+				if (name != null) {
+					products = products.Where(x => x.name == name).ToList();
+				}
+				if (priceStart != 0 || priceEnd != 9999999999) {
+					if (priceStart >= 0 && priceEnd >= 0) {
+						if (priceStart == 0) {
+							products = products.Where(x => x.price <= priceEnd).ToList();
+						} else if (priceEnd == 9999999999) { //!!asafafafs
+							return _context.Products.Where(x => x.price >= priceStart).ToList();
+						} else {
+							return _context.Products.Where(x => x.price <= priceEnd && x.price >= priceStart).ToList();
+						}
+					} else return _context.Products.ToList();
+				}
+				if (categoryName != null) {
+					return _context.Products.Where(x => x.category.name == categoryName).ToList();
+				}
+				if (category != null) {
+					return _context.Products.Where(x => x.category == category).ToList();
+				}
+				if (brandName != null) {
+					return _context.Products.Where(x => x.brand.name == brandName).ToList();
+				}
+				if (brand != null) {
+					return _context.Products.Where(x => x.brand == brand).ToList();
+				}
+				if (ratingStart != 0 || ratingEnd != 5) {
+					if (ratingStart == 0) {
+						return _context.Products.Where(x => x.rating <= ratingEnd).ToList();
+					} else if (ratingEnd == 0) {
+						return _context.Products.Where(x => x.rating >= ratingStart).ToList();
+					} else {
+						return _context.Products.Where(x => x.rating <= ratingEnd && x.rating >= ratingStart).ToList();
+					}
+				}
 			}
 		}
 	}
