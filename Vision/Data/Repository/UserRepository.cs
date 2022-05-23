@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vision.Interfaces;
 using Vision.Models;
-using Microsoft.EntityFrameworkCore;
+using Vision.Data;
 
 namespace Vision.Data.Repository
 {
