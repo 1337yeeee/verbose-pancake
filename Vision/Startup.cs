@@ -31,6 +31,7 @@ namespace Vision
 			services.AddTransient<IBrand, BrandRepository>();
 			services.AddTransient<IAuthor, AuthorRepository>();
 			services.AddTransient<IUser, UserRepository>();
+			services.AddTransient<ISearchRepository, SearchRepository>();
 			services.AddDbContext<DbContext>();
 		}
 

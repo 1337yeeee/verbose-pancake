@@ -2,16 +2,71 @@
 
 
 <div class="search">
-    <form method="post" asp-controller="Search" asp-action="ActFilter">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Кнопка выпадающего списка
-        </button>
-        <div class="dropdownMenuButton">
-            <input type="radio" name="Model" value="Article" checked /> Поиск по статьям <br />
-            <input type="radio" name="Model" value="Product" /> Поиск по товарам <br />
-            <input type="radio" name="Model" value="Brand" /> Поиск по брендам <br />
-            <input type="radio" name="Model" value="Author" /> Поиск по авторам <br />
-        </div>
-        <input type="text" />
+    <form method="post" asp-controller="Search" asp-action="Index">
+        <input type="radio" name="SearchModel" value="Article" checked /> Поиск по статьям <br />
+        <input type="radio" name="SearchModel" value="Product" /> Поиск по товарам <br />
+        <input type="radio" name="SearchModel" value="Brand" /> Поиск по брендам <br />
+        <input type="radio" name="SearchModel" value="Author" /> Поиск по авторам <br />
+        <br /><p style="font-size: 24px;"><b>Критерии</b></p><br />
+        <input type="text" name="name" placeholder="Называние" />
+        <input type="text" name="authorName" placeholder="Имя Автора" />
+        <input type="text" name="words" placeholder="ключевые слова" />
+        <input type="text" name="brandName" placeholder="Бренд" />
+        <input type="text" name="categoryName" placeholder="Категория" />
+        <p>Рейтинг</p>
+        <input type="number" name="ratingStart" min="0" max="5" placeholder="от" step="0.2"/>
+        <input type="number" name="ratingEnd" min="0" max="5" placeholder="до" step="0.2"/>
+        <p>Цена</p>
+        <input type="number" name="priceStart" min="0" max="9999999999" placeholder="от" step="1000"/>
+        <input type="number" name="priceEnd" min="0" max="9999999999" placeholder="до" step="1000"/>
+        <input type="submit" value="enter" />
     </form>
+</div>
+
+<div class="result">
+    @if (Model.ModelOfSearch == "Article")
+    {
+        foreach (var article in Model.Articles)
+        {
+            <div class="mini-article">
+                <h3>@article.name</h3>
+                <i>@article.author</i>
+                <i>@article.date</i>
+                <h4>@article.header</h4>
+                <p>@article.text</p>
+            </div>
+        }
+    }
+    else if (Model.ModelOfSearch == "Product")
+    {
+        foreach (var product in Model.Products)
+        {
+            <div class="mini-product">
+                <h3>@product.name</h3>
+                <b>@product.brand</b>
+                <i>@product.category</i>
+                <p>Цена: @product.price</p>
+            </div>
+        }
+    }
+    else if (Model.ModelOfSearch == "Brand")
+    {
+        foreach (var brand in Model.Brands)
+        {
+            <div class="mini-brand">
+                <h3>@brand.name</h3>
+                <p>@brand.disc</p>
+            </div>
+        }
+    }
+    else if (Model.ModelOfSearch == "Author")
+    {
+        foreach (var author in Model.Authors)
+        {
+            <div class="mini-article">
+                <h3>@author.name</h3>
+                <p>@author.rating</p>
+            </div>
+        }
+    }
 </div>

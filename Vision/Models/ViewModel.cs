@@ -9,7 +9,9 @@ namespace Vision.Models {
 		public IEnumerable<Brand> Brands { get; set; }
 		public IEnumerable<Article> Articles { get; set; }
 		public IEnumerable<Author> Authors { get; set; }
+		public string ModelOfSearch { get; set; }
 
+		public IEnumerable<User> Users { get; set; }
 
 
 		//public ViewModel() {

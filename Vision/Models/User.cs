@@ -11,7 +11,8 @@ namespace Vision.Models
         public string Sexgender { get; set; }
         public int Age { get; set; }
         public string Phone { get; set; }
-
+        public string Login { get; set; }
+        public string Password { get; set; }
 
 
     }
