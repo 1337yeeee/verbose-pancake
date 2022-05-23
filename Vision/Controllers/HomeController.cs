@@ -23,7 +23,7 @@ namespace Vision.Controllers
 
 		public HomeController(ILogger<HomeController> logger, IBrand brandManager,
 			ICategory categoryManager, IArticle articleManager, IAuthor authorManager,
-			IProduct productManager, DbContext context)
+			IProduct productManager,IUser userManager, DbContext context)
 		{
 			_logger = logger;
 			//_brandManager = brandManager;
@@ -40,8 +40,9 @@ namespace Vision.Controllers
 			List<Brand> brands = _context.Brands.ToList();
 			List<Category> categories = _context.Categories.ToList();
 			List<Product> products = _context.Products.ToList();
+			List<User> users= _context.Users.ToList();
 			
-			ViewModel viewModel = new ViewModel() { Authors = authors, Articles = articles, Brands= brands, Categories= categories, Products= products };
+			ViewModel viewModel = new ViewModel() { Authors = authors, Articles = articles, Brands= brands, Categories= categories, Products= products, Users = users };
 			return View(viewModel);
 		}
 		[HttpPost]
@@ -106,103 +107,115 @@ namespace Vision.Controllers
 			_context.SaveChanges();
 			return RedirectToAction("Index");
 		}
-	
+        [HttpGet]
+		public IActionResult Registration()
+        {
+			return View();
+        }
+		[HttpPost]
+		public IActionResult ActRegistration(string Login, string Password, string Name, string Sexgender, string Phone, int Age, Guid Id)
+		{
+			User user = new User() { Id = Guid.NewGuid(), Name= Name,Sexgender= Sexgender,Age=Age, Phone = Phone, Login=Login, Password= Password  };
+			_context.Users.Add(user);
+			_context.SaveChanges();
+			return View();
+		}
 
-	//=========================IActionResult HttpGet
-	//[HttpGet]
-	//public IActionResult NotFound() {
-	//	return View();
-	//}
-	//[HttpGet]
-	//public IActionResult ActArticle()
-	//{
-	//	var db = new DbContext();
-	//	var article = db.Articles.ToList();
-	//	var model = new ViewModel { Articles = article };
-	//	return View(model);
-	//}
-	//[HttpGet]
-	//public IActionResult ActAuthor() {
-	//	var db = new DbContext();
-	//	var author = db.Authors.ToList();
-	//	var model = new ViewModel { Authors = author };
-	//	return View(model);
-	//}
-	//[HttpGet]
-	//public IActionResult ActBrand() {
-	//	var db = new DbContext();
-	//	var brand = db.Brands.ToList();
-	//	var model = new ViewModel { Brands = brand };
-	//	return View(model);
-	//}
-	//[HttpGet]
-	//public IActionResult ActCategory() {
-	//	var db = new DbContext();
-	//	var category = db.Categories.ToList();
-	//	var model = new ViewModel { Categories = category };
-	//	return View(model);
-	//}
-	//[HttpGet]
-	//public IActionResult ActProduct() {
-	//	var db = new DbContext();
-	//	var product = db.Products.ToList();
-	//	var model = new ViewModel { Products = product };
-	//	return View(model);
-	//}
-	////=========================/IActionResult HttpGet
+		//=========================IActionResult HttpGet
+		//[HttpGet]
+		//public IActionResult NotFound() {
+		//	return View();
+		//}
+		//[HttpGet]
+		//public IActionResult ActArticle()
+		//{
+		//	var db = new DbContext();
+		//	var article = db.Articles.ToList();
+		//	var model = new ViewModel { Articles = article };
+		//	return View(model);
+		//}
+		//[HttpGet]
+		//public IActionResult ActAuthor() {
+		//	var db = new DbContext();
+		//	var author = db.Authors.ToList();
+		//	var model = new ViewModel { Authors = author };
+		//	return View(model);
+		//}
+		//[HttpGet]
+		//public IActionResult ActBrand() {
+		//	var db = new DbContext();
+		//	var brand = db.Brands.ToList();
+		//	var model = new ViewModel { Brands = brand };
+		//	return View(model);
+		//}
+		//[HttpGet]
+		//public IActionResult ActCategory() {
+		//	var db = new DbContext();
+		//	var category = db.Categories.ToList();
+		//	var model = new ViewModel { Categories = category };
+		//	return View(model);
+		//}
+		//[HttpGet]
+		//public IActionResult ActProduct() {
+		//	var db = new DbContext();
+		//	var product = db.Products.ToList();
+		//	var model = new ViewModel { Products = product };
+		//	return View(model);
+		//}
+		////=========================/IActionResult HttpGet
 
-	//public IActionResult Privacy()
-	//{
-	//	return View();
-	//}
+		//public IActionResult Privacy()
+		//{
+		//	return View();
+		//}
 
-	//=========================IActionResult HttpPost
-	// статья
-	//[HttpPost]
-	//public IActionResult ActArticle(string name, string header, Guid authorID, string text, string path,
-	//								string productName) {
-	//	_articleManager.createArticle(name, header, authorID, DateTime.Now, text, path, productName);
-	//	return RedirectToAction("ActArticle");
-	//}
-	//// автор
-	//[HttpPost]
-	//public IActionResult ActAuthor(string name) {
-	//	var db = new DbContext();
-	//	if (!db.Authors.Any(x => x.name == name)) {
-	//		_authorManager.createAuthor(name);
-	//		return RedirectToAction("ActAuthor");
-	//	} else return RedirectToAction("NotFound");
-	//}
-	//// бренд
-	//[HttpPost]
-	//public IActionResult ActBrand(string name, string disc) {
-	//	_brandManager.createBrand(name, disc);
+		//=========================IActionResult HttpPost
+		// статья
+		//[HttpPost]
+		//public IActionResult ActArticle(string name, string header, Guid authorID, string text, string path,
+		//								string productName) {
+		//	_articleManager.createArticle(name, header, authorID, DateTime.Now, text, path, productName);
+		//	return RedirectToAction("ActArticle");
+		//}
+		//// автор
+		//[HttpPost]
+		//public IActionResult ActAuthor(string name) {
+		//	var db = new DbContext();
+		//	if (!db.Authors.Any(x => x.name == name)) {
+		//		_authorManager.createAuthor(name);
+		//		return RedirectToAction("ActAuthor");
+		//	} else return RedirectToAction("NotFound");
+		//}
+		//// бренд
+		//[HttpPost]
+		//public IActionResult ActBrand(string name, string disc) {
+		//	_brandManager.createBrand(name, disc);
 
-	//	return RedirectToAction("ActBrand");
-	//}
-	//// категория
-	//[HttpPost]
-	//public IActionResult ActCategory(string name, string sizeTable) {
-	//	_categoryManager.createCategory(name, sizeTable);
+		//	return RedirectToAction("ActBrand");
+		//}
+		//// категория
+		//[HttpPost]
+		//public IActionResult ActCategory(string name, string sizeTable) {
+		//	_categoryManager.createCategory(name, sizeTable);
 
-	//	return RedirectToAction("ActCategory");
-	//}
-	//// товар
-	//[HttpPost]
-	//public IActionResult ActProduct(string name, double price, string link,
-	//					string img_, string categoryName, string brandName) {
-	//	var db = new DbContext();
-	//	var category = db.Categories.FirstOrDefault(x => x.name == categoryName);
-	//	var brand = db.Brands.FirstOrDefault(x => x.name == brandName);
-	//	var img = new Image { path = img_ };
+		//	return RedirectToAction("ActCategory");
+		//}
+		//// товар
+		//[HttpPost]
+		//public IActionResult ActProduct(string name, double price, string link,
+		//					string img_, string categoryName, string brandName) {
+		//	var db = new DbContext();
+		//	var category = db.Categories.FirstOrDefault(x => x.name == categoryName);
+		//	var brand = db.Brands.FirstOrDefault(x => x.name == brandName);
+		//	var img = new Image { path = img_ };
 
-	//	_productManager.createProduct(name, price, link, img, category.id, brand.id);
+		//	_productManager.createProduct(name, price, link, img, category.id, brand.id);
 
-	//	return RedirectToAction("ActProduct");
-	//}
-	//=========================/IActionResult HttpPost
+		//	return RedirectToAction("ActProduct");
+		//}
+		//=========================/IActionResult HttpPost
 
-	[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

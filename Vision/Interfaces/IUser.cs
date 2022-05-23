@@ -9,7 +9,7 @@ namespace Vision.Interfaces
     public interface IUser
     {
         Task<IList<User>> getAll();
-        Task creatUser(string name, string SexGender, int Age, string Phone);
+        Task creatUser(string Name, string Sexgender, int Age, string Phone, string Login, string Password);
         Task deleteUser(Guid UserID);
         Task editUser(User user);
     }
