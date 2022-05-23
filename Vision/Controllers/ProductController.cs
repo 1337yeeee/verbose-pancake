@@ -23,7 +23,7 @@ namespace Vision.Controllers {
 			return View(products);
 		}
 		[HttpGet]
-		[Route("Article/{id:guid}")]
+		[Route("Product/Index/{id:guid}")]
 		public IActionResult Index(Guid id)
         {
 			Product product = _context.Products.FirstOrDefault(p => p.id == id);

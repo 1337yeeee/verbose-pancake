@@ -13,7 +13,7 @@ namespace Vision.Controllers
             _context = context;
         }
         [HttpGet]
-        [Route("Article/{id:guid}")]
+        [Route("Article/Index/{id:guid}")]
         public IActionResult Index(Guid id)
         {
             Article article = _context.Articles.FirstOrDefault(article => article.id == id);

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vision.Interfaces;
 using Vision.Models;
-using Vision.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Vision.Data.Repository
 {
@@ -23,10 +24,10 @@ namespace Vision.Data.Repository
 
         public async Task deleteUser(Guid UserID)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id == UserId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == UserID);
             if(user != null)
             {
-                _context.Users.remove(user);
+                _context.Users.Remove(user);
             }
             await _context.SaveChangesAsync();
         }
