@@ -2,6 +2,10 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @if(Model != null){
-    <p>@Model.name</p>
-    <p>@Model.brand</p>
+    <img src = "@ViewBag.ImageDataUrl" />
+    <p>Name: @Model.name</p>
+    <p>Brand: @Model.brand?.name</p>
+    <p>Category: @Model.category?.name</p>
+    <p>Price: @Model.price</p>
+    <p>Rating: @Model.rating</p>
 }

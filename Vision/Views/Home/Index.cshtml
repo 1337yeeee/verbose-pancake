@@ -123,7 +123,7 @@
 <div class="newdata new-article">
     <h3>Добавить статью</h3>
     <h4>можно здесь</h4>
-    <form method="post" asp-controller="Home" asp-action="ActArticle">
+    <form method="post" asp-controller="Home" asp-action="ActArticle" enctype="multipart/form-data">
         <p>Название</p>
         <input type="text" name="name" required />
         <p>Заголовок</p>
@@ -139,6 +139,9 @@
         <p>Ваша статья</p>
         <input type="text" name="text" required />
         <p>Изображение</p>
+        <input type="file" id="ArticleImage" 
+           name="ArticleImage" 
+           multiple="multiple" />
         <input type="submit" value="enter" />
 
     </form>
@@ -190,7 +193,7 @@
 <div class="newdata new-product">
     <h3>Продукт</h3>
     <h4></h4>
-    <form method="post" asp-controller="Home" asp-action="ActProduct">
+    <form method="post" asp-controller="Home" asp-action="ActProduct" enctype="multipart/form-data">
         <p>Название</p>
         <input type="text" name="name" required />
         <p>Цена</p>
@@ -200,7 +203,9 @@
         <p>Ссылка</p>
         <input type="text" name="link" required/>
          <p>Изображение</p>
-        <input type="text" name="img" required/>
+        <input type="file" id="ProductImage" 
+           name="ProductImage" 
+           multiple="multiple" />
        
        
         <p>Категория</p>

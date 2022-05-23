@@ -15,7 +15,7 @@ namespace Vision.Models {
 		public string text { get; set; }
 		public List<Image> img { get; set; }
 		public List<Product> productList { get; set; }
-
+		public double AverageAssessment { get; set; }
 		public Article() {
 		}
 	}
