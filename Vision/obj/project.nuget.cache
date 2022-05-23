@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J2JcYeXB4ZnCZrcbkaz8TYG8b5RLU0H0UFj2lczAMkmfluh17KVlPAqgWWAneL0YG9LusKCheUUXas+P+jQdiA==",
+  "dgSpecHash": "jOsWbSWEYz/GdaIY1PiHT66OPdBP1vyRmyMhpiBrZa7Yr/YRkbsQF2IWasyGXlN9YPXftXIbuGx0GSDKnt2Bhg==",
   "success": true,
   "projectFilePath": "/Users/admin/ProjectsVS/Vision/Vision/Vision.csproj",
   "expectedPackageFiles": [
@@ -113,7 +113,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"JSON 1.0.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'JSON 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
       "libraryId": "JSON",
       "targetGraphs": [
         "net5.0"

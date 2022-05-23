@@ -97,7 +97,8 @@
         </div>
     </div>*@
 
-
+   <div class="newdata new-author">
+         <h3>Авторы</h3>
 <form method="post" asp-controller="Home" asp-action="ActAuthor">
     <input name="name" placeholder="name" />
     <input name="rating" placeholder="rating" />
@@ -115,7 +116,7 @@
 				}
 
 }
-
+</div>
 
 <div class="newdata new-article">
     <h3>Добавить статью</h3>
@@ -126,16 +127,112 @@
         <p>Заголовок</p>
         <input type="text" name="header" required />
         <p>Автор</p>
-        <input type="text" name="authorName" required list="categoriesList" />
-        <datalist id="categoriesList">
-            @foreach (var a in Model.Authors)
+        <input type="text" name="authorName" required list="authorsList" />
+        <datalist id="authorsList">
+            @foreach (var author in Model.Authors)
             {
-                <option>@a.name</option>
+                <option>@author.name</option>
             }
         </datalist>
         <p>Ваша статья</p>
         <input type="text" name="text" required />
         <p>Изображение</p>
         <input type="submit" value="enter" />
+
     </form>
+</div>
+
+<div class="newdata new-brand">
+    <h3>Бренды</h3>
+    <h4></h4>
+    <form method="post" asp-cotroller="Home" asp-action="ActBrand">
+        <input name="name" input placeholder="name" required />
+        <p></p>
+        <input type="text" input name="disc" input placeholder="disc" required/>
+        <button type="submit">Нажми</button>
+    </form>
+    @if(Model != null)
+    {
+        @foreach(var brand in Model.Brands)
+        {
+            <p>@brand.name
+                @brand.disc</p>
+        }
+       @* @foreach(var product in Model.Products) {
+                    <p>@product.name, @product.price, @product.rating, product.link, @product.brand: @product.brandID </p>
+        }*@
+    }
+</div>
+
+<div class="newdata new-category">
+    <h3>Категории</h3>
+    <h4></h4>
+    <form method="post" asp-cotroller="Home" asp-action="ActCategory">
+        <input name="name" input placeholder="name" required />
+        <p></p>
+        <input type="text" input name="sizeTable" input placeholder="sizeTable" required/>
+        <button type="submit">Нажми</button>
+    </form>
+    @if(Model != null)
+    {
+        @foreach(var category in Model.Categories)
+        {
+            <p>@category.name
+                @category.sizeTable</p>
+        }
+       @*  @foreach(var product in Model.Products) {
+                    <p>@product.name, @product.price, @product.rating, product.link, @product.category: @product.categoryID </p>
+         }*@
+    }
+</div>
+<div class="newdata new-product">
+    <h3>Продукт</h3>
+    <h4></h4>
+    <form method="post" asp-controller="Home" asp-action="ActProduct">
+        <p>Название</p>
+        <input type="text" name="name" required />
+        <p>Цена</p>
+        <input type="text" name="price" required />
+        <p>Оценка</p>
+        <input type="text" name="rating" required />
+        <p>Ссылка</p>
+        <input type="text" name="link" required/>
+         <p>Изображение</p>
+        <input type="text" name="img" required/>
+       
+       
+        <p>Категория</p>
+        <input  name="categoryName" required list="categoriesList" />
+        <datalist id="categoriesList">
+            @foreach (var category in Model.Categories)
+            {
+                <option>@category.name</option>
+            }
+        </datalist>
+
+         <input  name="brandName" required list="brandsList" />
+        <datalist id="brandsList">
+            @foreach (var brand in Model.Brands)
+            {
+                <option>@brand.name</option>
+            }
+        </datalist>
+        
+        <input type="submit" value="enter" />
+    </form>
+
+    @if(Model != null)
+    {
+        @foreach(var product in Model.Products)
+        {
+            <p>@product.name
+                @product.price
+                @product.rating
+                <b>@product.brand.name
+                @product.category.name</b></p>
+        }
+        @* @foreach(var product in Model.Products) {
+                    <p>@product.name, @product.price, @product.rating, product.link, @product.category: @product.categoryID </p>
+				}*@
+    }
 </div>

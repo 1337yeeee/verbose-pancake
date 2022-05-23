@@ -14,7 +14,7 @@
         "outputPath": "/Users/admin/ProjectsVS/Vision/Vision/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/admin/.nuget/NuGet/NuGet.Config"
+          "/Users/admin/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
