@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ICBU+6ugVpCYD3i7s1bQoOGxvDWZMp2ZqxKK/3/9VxXT4jmWSh5lNcOyiPNwFb2tnqSkSv6bGFRU2E1AY2q6eQ==",
+  "dgSpecHash": "T4PC4nKQ2zUE3/UoYZHAvmnkUSkjG6r/WGG+Q0H41bYs5FHWGJUX6UMJYKY0Ol7XwoyQJqvUEuwGndOTHRv3ag==",
   "success": true,
   "projectFilePath": "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\Vision.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\5.0.16\\microsoft.entityframeworkcore.sqlite.5.0.16.nupkg.sha512",
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.16\\microsoft.entityframeworkcore.sqlite.core.5.0.16.nupkg.sha512",
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.0\\microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",
+    "C:\\Users\\Данила\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.16\\microsoft.entityframeworkcore.tools.5.0.16.nupkg.sha512",
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
@@ -110,6 +111,12 @@
     "C:\\Users\\Данила\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

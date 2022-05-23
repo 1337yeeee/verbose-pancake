@@ -112,7 +112,9 @@
     }
     <p style="font-size: 48px;">Articles:</p>
     @foreach(var article in Model.Articles) {
-                    <p>@article.name, @article.header, @article.author: @article.authorID </p>
+                    <p>@article.name, @article.header, @article.author: @article.authorID 
+                        <a asp-controller = "Article" asp-action = "Index" asp-route-id="@article.id.ToString()">page link</a>
+                    </p>
 				}
 
 }
