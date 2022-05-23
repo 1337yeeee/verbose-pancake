@@ -1,6 +1,6 @@
 ﻿namespace Vision.Data.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUser
     {
     }
 }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj": {}
+    "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\Vision.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj": {
+    "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\Vision.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj",
+        "projectUniqueName": "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\Vision.csproj",
         "projectName": "Vision",
-        "projectPath": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj",
-        "packagesPath": "C:\\Users\\Adyan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\obj\\",
+        "projectPath": "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\Vision.csproj",
+        "packagesPath": "C:\\Users\\Данила\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Данила\\Desktop\\adyan project\\verbose-pancake\\Vision\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Adyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Данила\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,12 +66,6 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.0.16, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -83,6 +81,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.15, 5.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

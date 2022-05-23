@@ -229,7 +229,8 @@
                 @product.price
                 @product.rating
                 <b>@product.brand.name
-                @product.category.name</b></p>
+                @product.category.name</b>
+                <a asp-controller = "Product" asp-action = "Index" asp-route-id = "@product.id.ToString()">product link</a></p>
         }
         @* @foreach(var product in Model.Products) {
                     <p>@product.name, @product.price, @product.rating, product.link, @product.category: @product.categoryID </p>

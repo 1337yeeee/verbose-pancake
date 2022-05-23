@@ -201,3 +201,14 @@ C:\Users\Adyan\OneDrive\Рабочий стол\проект\verbose-pancake\Vis
 C:\Users\Adyan\OneDrive\Рабочий стол\проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.pdb
 C:\Users\Adyan\OneDrive\Рабочий стол\проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.genruntimeconfig.cache
 C:\Users\Adyan\OneDrive\Рабочий стол\проект\verbose-pancake\Vision\obj\Debug\net5.0\ref\Vision.dll
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.csproj.AssemblyReference.cache
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.AssemblyInfoInputs.cache
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.AssemblyInfo.cs
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.csproj.CoreCompileInputs.cache
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.RazorAssemblyInfo.cache
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.RazorAssemblyInfo.cs
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.dll
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\refint\Vision.dll
+C:\Users\Данила\Desktop\adyan project\verbose-pancake\Vision\obj\Debug\net5.0\Vision.pdb

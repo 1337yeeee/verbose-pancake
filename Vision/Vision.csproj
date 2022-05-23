@@ -26,7 +26,6 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Data\" />
     <Folder Include="mocks\" />
-    <Folder Include="Views\Product\" />
     <Folder Include="Views\Temp\" />
     <Folder Include="Data\Repository\" />
     <Folder Include="Views\Search\" />
