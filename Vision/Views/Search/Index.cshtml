@@ -1,0 +1,17 @@
+﻿@model ViewModel
+
+
+<div class="search">
+    <form method="post" asp-controller="Search" asp-action="ActFilter">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Кнопка выпадающего списка
+        </button>
+        <div class="dropdownMenuButton">
+            <input type="radio" name="Model" value="Article" checked /> Поиск по статьям <br />
+            <input type="radio" name="Model" value="Product" /> Поиск по товарам <br />
+            <input type="radio" name="Model" value="Brand" /> Поиск по брендам <br />
+            <input type="radio" name="Model" value="Author" /> Поиск по авторам <br />
+        </div>
+        <input type="text" />
+    </form>
+</div>
