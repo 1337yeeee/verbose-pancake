@@ -8,7 +8,7 @@ namespace Vision.Interfaces {
 		Task<IList<Article>> allArticles();
 
 		Task createArticle(string name, string header, Guid authorID,
-			DateTime date, string text, string path, string productName);
+			DateTime date, string text, byte[] imagedata, string productName);
 
 		Task delete(Guid id);
 	}

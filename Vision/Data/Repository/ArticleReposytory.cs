@@ -17,16 +17,15 @@ namespace Vision.Data.Repository {
 
 		public async Task<IList<Article>> allArticles() => await _context.Articles.ToListAsync();
 
-		public async Task createArticle(string name, string header, Guid authorID, DateTime date, string text, string path, string productName) {
+		public async Task createArticle(string name, string header, Guid authorID, DateTime date, string text, byte[] imagedata, string productName) {
 			var product = _context.Products.FirstOrDefault(x => x.name == productName);
-			var img = _context.Images.FirstOrDefault(x => x.path == path);
 			var article = new Article {
 				name = name,
 				header = header,
 				authorID = authorID,
 				date = date,
 				text = text,
-				img = new List<Image> { img },
+				img = new List<Image> { new Image { id = Guid.NewGuid(), ImageData = imagedata, ImageTitle = "" } },
 				productList = new List<Product> { product}
 			};
 			_context.Articles.Add(article);

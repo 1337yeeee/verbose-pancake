@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -54,14 +55,25 @@ namespace Vision.Controllers
 			newAuthor.articles = new List<Article>();
 			_context.Authors.Add(newAuthor);
 			_context.SaveChanges();
+
 			return RedirectToAction("Index");
 		}
 		[HttpPost]
 		public IActionResult ActArticle(string name, string header, string authorName, string text) {
 			Author author = _context.Authors.FirstOrDefault(x => x.name == authorName);
-			Article newArticle = new Article() { id = Guid.NewGuid(), name = name, header = header, text = text, date = DateTime.Now, img = new List<Image>(), productList = new List<Product>(), author = author, authorID = author.id };
+			Article newArticle = new Article() { id = Guid.NewGuid(), name = name, header = header, text = text, date = DateTime.Now, img = new List<Image>(), productList = new List<Product>(), author = author, authorID = author.id};
 			if (newArticle == null) {
 				return RedirectToAction("Index");
+			}
+			var file = Request.Form.Files.FirstOrDefault(f => f.Name == "ArticleImage");
+			if(file != null)
+            {
+				Image image = new Image() { id = Guid.NewGuid()};
+				image.ImageTitle = file.FileName;
+				MemoryStream ms = new MemoryStream();
+				file.CopyTo(ms);
+				image.ImageData = ms.ToArray();
+				newArticle.img = new List<Image>() { image };
 			}
 			_context.Articles.Add(newArticle);
 			_context.SaveChanges();
@@ -98,10 +110,20 @@ namespace Vision.Controllers
         {
 			Category category = _context.Categories.FirstOrDefault(x => x.name == categoryName);
 			Brand brand = _context.Brands.FirstOrDefault(x => x.name == brandName);
-			Product newProduct = new Product() { id =Guid.NewGuid(), name= name, price= price,  link= link, rating= rating, img = new Image(), categoryID =category.id,category= category, brand= brand, brandID=brand.id };
+			Product newProduct = new Product() { id =Guid.NewGuid(), name= name, price= price,  link= link, rating= rating, categoryID =category.id,category= category, brand= brand, brandID=brand.id };
 			if (newProduct == null)
 			{
 				return RedirectToAction("Index");
+			}
+			var file = Request.Form.Files.FirstOrDefault(f => f.Name == "ProductImage");
+			if (file != null)
+			{
+				Image image = new Image() { id = Guid.NewGuid() };
+				image.ImageTitle = file.FileName;
+				MemoryStream ms = new MemoryStream();
+				file.CopyTo(ms);
+				image.ImageData = ms.ToArray();
+				newProduct.img = image;
 			}
 			_context.Products.Add(newProduct);
 			_context.SaveChanges();
