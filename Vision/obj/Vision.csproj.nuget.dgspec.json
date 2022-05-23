@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj": {}
+    "/Users/admin/ProjectsVS/Vision/Vision/Vision.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj": {
+    "/Users/admin/ProjectsVS/Vision/Vision/Vision.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj",
+        "projectUniqueName": "/Users/admin/ProjectsVS/Vision/Vision/Vision.csproj",
         "projectName": "Vision",
-        "projectPath": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\Vision.csproj",
-        "packagesPath": "C:\\Users\\Adyan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adyan\\OneDrive\\Рабочий стол\\проект\\verbose-pancake\\Vision\\obj\\",
+        "projectPath": "/Users/admin/ProjectsVS/Vision/Vision/Vision.csproj",
+        "packagesPath": "/Users/admin/.nuget/packages/",
+        "outputPath": "/Users/admin/ProjectsVS/Vision/Vision/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Adyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/admin/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,12 +60,6 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.0.16, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -91,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
         }
       }
     }
