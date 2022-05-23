@@ -14,11 +14,11 @@ namespace Vision.Controllers {
 
 		private readonly ISearchRepository _searchManager;
 
-		private string _SearchModel;
-		private List<Article> _anwerArt;
-		private List<Product> _anwerPro;
-		private List<Author> _anwerAut;
-		private List<Brand> _anwerBra;
+		private static string _SearchModel;
+		private static List<Article> _anwerArt;
+		private static List<Product> _anwerPro;
+		private static List<Author> _anwerAut;
+		private static List<Brand> _anwerBra;
 
 		public SearchController(ILogger<HomeController> logger, DbContext context, ISearchRepository searchManager) {
 			_logger = logger;
