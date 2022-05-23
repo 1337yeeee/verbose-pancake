@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vision.Interfaces
+using Vision.Interfaces;
 using Vision.Models;
 
 namespace Vision.Data.Repository {
@@ -73,7 +73,7 @@ namespace Vision.Data.Repository {
 					} else {
 						return _context.Products.Where(x => x.price <= priceEnd && x.price >= priceStart).ToList();
 					}
-				}
+				} else return _context.Products.ToList();
 			} else if(categoryName != null) {
 				return _context.Products.Where(x => x.category.name == categoryName).ToList();
 			} else if(category != null) {
@@ -95,5 +95,4 @@ namespace Vision.Data.Repository {
 			}
 		}
 	}
-}
 }
