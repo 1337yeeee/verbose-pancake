@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="proto\" />
     <Folder Include="mocks\" />
-    <Folder Include="Views\Product\" />
     <Folder Include="Views\Temp\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>

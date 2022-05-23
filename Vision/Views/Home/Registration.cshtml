@@ -5,7 +5,7 @@
 <form method="post" asp-controller="Home" asp-action="ActRegistration">
 
     <input Name="Name" placeholder="Name" />
-     <input Name="Gender" placeholder="Gender" />
+     <input Name="Sexgender" placeholder="Sexgender" />
     <input Name="Age" placeholder="Age" />
     <input Name="Phone" placeholder="Phone" />
     <input Name="Login" placeholder="Login" />
@@ -16,6 +16,6 @@
 {
     @foreach (var user in Model.Users)
     {
-        <p>@user.Name, @user.Gender, @user.Age, @user.Phone, @user.Login, @user.Password</p>
+        <p>@user.Name, @user.Sexgender, @user.Age, @user.Phone, @user.Login, @user.Password</p>
     }
 }

@@ -15,9 +15,9 @@ namespace Vision.Data.Repository
         {
             _context = context;
         }
-       public async Task creatUser(string Name, string Gender, int Age, string Phone, string Login, string Password)
+       public async Task creatUser(string Name, string Sexgender, int Age, string Phone, string Login, string Password)
         {
-            var user = new User { Name = Name, Gender = Gender, Age = Age, Phone = Phone, Login= Login, Password= Password };
+            var user = new User { Name = Name, Sexgender = Sexgender, Age = Age, Phone = Phone, Login= Login, Password= Password };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }

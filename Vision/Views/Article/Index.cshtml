@@ -1,0 +1,7 @@
+﻿@model Article
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@if(Model != null){
+    <p>@Model.name</p>
+    <p>@Model.date</p>
+}

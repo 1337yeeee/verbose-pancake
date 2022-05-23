@@ -8,7 +8,7 @@ namespace Vision.Models
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Gender { get; set; }
+        public string Sexgender { get; set; }
         public int Age { get; set; }
         public string Phone { get; set; }
         public string Login { get; set; }

@@ -113,9 +113,9 @@ namespace Vision.Controllers
 			return View();
         }
 		[HttpPost]
-		public IActionResult ActRegistration(string Login, string Password, string Name, string Phone, string Gender, int Age, Guid Id)
+		public IActionResult ActRegistration(string Login, string Password, string Name, string Sexgender, string Phone, int Age, Guid Id)
 		{
-			User user = new User() { Id = Guid.NewGuid(), Name= Name,Gender= Gender,Age=Age, Phone = Phone, Login=Login, Password= Password  };
+			User user = new User() { Id = Guid.NewGuid(), Name= Name,Sexgender= Sexgender,Age=Age, Phone = Phone, Login=Login, Password= Password  };
 			_context.Users.Add(user);
 			_context.SaveChanges();
 			return View();
