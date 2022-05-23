@@ -10,6 +10,7 @@ namespace Vision.Models {
 		public IEnumerable<Article> Articles { get; set; }
 		public IEnumerable<Author> Authors { get; set; }
 
+		public IEnumerable<User> Users { get; set; }
 
 
 		//public ViewModel() {

@@ -104,6 +104,7 @@ namespace Vision.Data.Repository {
 						return _context.Products.Where(x => x.rating <= ratingEnd && x.rating >= ratingStart).ToList();
 					}
 				}
+				return products;
 			}
 		}
 	}

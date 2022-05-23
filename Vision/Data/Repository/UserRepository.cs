@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Vision.Interfaces;
 using Vision.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Vision.Data.Repository
 {
@@ -14,19 +15,19 @@ namespace Vision.Data.Repository
         {
             _context = context;
         }
-       public async Task creatUser(string name, string SexGender, int Age, string Phone)
+       public async Task creatUser(string Name, string Gender, int Age, string Phone, string Login, string Password)
         {
-            var user = new User { Name = name, Sexgender = SexGender, Age = Age, Phone = Phone };
+            var user = new User { Name = Name, Gender = Gender, Age = Age, Phone = Phone, Login= Login, Password= Password };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }
 
         public async Task deleteUser(Guid UserID)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id == UserId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == UserID);
             if(user != null)
             {
-                _context.Users.remove(user);
+                _context.Users.Remove(user);
             }
             await _context.SaveChangesAsync();
         }
