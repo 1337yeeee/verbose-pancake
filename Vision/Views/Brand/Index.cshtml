@@ -1,0 +1,22 @@
+﻿@model Brand
+
+
+<div class="newdata new-brand">
+        <p>Название бренда</p>
+        <p>@Model.name</p>
+        <p>Описание бренда</p>
+        <p>@Model.disc</p>
+
+        <div class = "products">
+            <p>Products:</p>
+        @foreach(var product in Model.clothesID)
+        {
+            <div class="product">
+                <p>Product name: @product.name</p>
+                <p>Price: @product.price</p>
+                <p>Image: @product.img</p>
+                <p>Link:  @product.link</p>
+            </div>
+        }
+        </div>
+</div>

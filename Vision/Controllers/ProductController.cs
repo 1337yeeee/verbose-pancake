@@ -27,7 +27,7 @@ namespace Vision.Controllers {
 		[Route("Product/Index/{id:guid}")]
 		public IActionResult Index(Guid id)
         {
-			Product product = _context.Products.Include(p => p.img).FirstOrDefault(p => p.id == id);
+			Product product = _context.Products.Include(p => p.img).Include(p => p.category).Include(p => p.brand).FirstOrDefault(p => p.id == id);
 			if (product.img != null && product.img.ImageData != null)
 			{
 				string imageBase64Data =

@@ -83,6 +83,8 @@
         {
             <p>@brand.name
                 @brand.disc</p>
+                                        <a asp-controller = "Brand" asp-action = "Index" asp-route-id="@brand.id.ToString()">page link</a>
+
         }
        @* @foreach(var product in Model.Products) {
                     <p>@product.name, @product.price, @product.rating, product.link, @product.brand: @product.brandID </p>
@@ -105,6 +107,8 @@
         {
             <p>@category.name
                 @category.sizeTable</p>
+                  <a asp-controller = "Category" asp-action = "Index" asp-route-id="@category.id.ToString()">page link</a>
+
         }
        @*  @foreach(var product in Model.Products) {
                     <p>@product.name, @product.price, @product.rating, product.link, @product.category: @product.categoryID </p>
