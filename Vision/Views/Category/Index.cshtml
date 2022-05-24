@@ -1,0 +1,22 @@
+﻿@model Category
+
+
+<div class="newdata new-category">
+        <p>Название категории</p>
+        <p>@Model.name</p>
+        <p>Описание размеров</p>
+        <p>@Model.sizeTable</p>
+
+        <div class = "products">
+            <p>Products:</p>
+        @foreach(var product in Model.clothes)
+        {
+            <div class="product">
+                <p>Product name: @product.name</p>
+                <p>Price: @product.price</p>
+                <p>Image: @product.img</p>
+                <p>Link:  @product.link</p>
+            </div>
+        }
+        </div>
+</div>
