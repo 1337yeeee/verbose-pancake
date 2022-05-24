@@ -118,3 +118,39 @@ body {
 .rate-area > label:active {
     position: relative;
 }
+
+.registrationform {
+    width: 50%;
+    margin: auto;
+}
+.registrationform input {
+    margin-bottom: 2%;
+
+}
+.submitbutton{
+    text-align: center;
+}
+.namearticle{
+    font-size: 24px;
+    font-weight: bold;
+}
+.articletime {
+    text-align: end;
+    font-size: 16px;
+}
+.articletext{
+    margin-top: 3%;
+    word-break: break-all;
+}
+.product {
+    width: 70%;
+    margin: auto;
+}
+.productname{
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.productimage img{
+    width: 300px;
+}
