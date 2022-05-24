@@ -142,3 +142,15 @@ body {
     margin-top: 3%;
     word-break: break-all;
 }
+.product {
+    width: 70%;
+    margin: auto;
+}
+.productname{
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.productimage img{
+    width: 300px;
+}
