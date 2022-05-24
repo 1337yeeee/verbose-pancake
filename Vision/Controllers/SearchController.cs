@@ -60,9 +60,9 @@ namespace Vision.Controllers {
 				_anwerPro = _searchManager.FilterProduct(name, priceStart, priceEnd,
 								categoryName, brandName, ratingStart, ratingEnd);
 			} else if(SearchModel == "Brand") {
-				_anwerBra = _searchManager.FilterBrand(name, words);
+				_anwerBra = _searchManager.FilterBrand((name!=null)?name:brandName, words);
 			} else if(SearchModel == "Author") {
-				_anwerAut = _searchManager.FilterAuthor(name, ratingStart, ratingEnd);
+				_anwerAut = _searchManager.FilterAuthor((name!=null)?name:authorName, ratingStart, ratingEnd);
 			}
 
 			return RedirectToAction("Index");

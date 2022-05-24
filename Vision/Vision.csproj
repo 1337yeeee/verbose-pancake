@@ -20,12 +20,14 @@
     <None Remove="Views\Temp\" />
     <None Remove="Data\Repository\" />
     <None Remove="Views\Search\" />
+    <None Remove="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="proto\" />
     <Folder Include="mocks\" />
     <Folder Include="Views\Temp\" />
     <Folder Include="Views\Search\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />

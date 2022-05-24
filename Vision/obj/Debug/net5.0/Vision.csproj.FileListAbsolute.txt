@@ -313,3 +313,4 @@ C:/Users/Данила/Desktop/adyan project/verbose-pancake/Vision/obj/Debug/net
 C:/Users/Данила/Desktop/adyan project/verbose-pancake/Vision/obj/Debug/net5.0/ref/Vision.dll
 >>>>>>> 5a5f2627704801c7c4c4a552022a2b1207124eb4
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Home/ActRegistration.cshtml.g.cs
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Admin/Index.cshtml.g.cs
