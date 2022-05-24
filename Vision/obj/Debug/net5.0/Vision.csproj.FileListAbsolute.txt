@@ -75,8 +75,11 @@ C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vis
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.TagHelpers.input.cache
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.TagHelpers.output.cache
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.RazorCoreGenerate.cache
+C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Admin\Article.cshtml.g.cs
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Article\Index.cshtml.g.cs
+C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Brand\Index.cshtml.g.cs
+C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Home\ActRegistration.cshtml.g.cs
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Home\Category.cshtml.g.cs
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
@@ -102,5 +105,3 @@ C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vis
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.pdb
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Vision.genruntimeconfig.cache
 C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\ref\Vision.dll
-C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Brand\Index.cshtml.g.cs
-C:\Users\Adyan\OneDrive\Рабочий стол\Проект\verbose-pancake\Vision\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs

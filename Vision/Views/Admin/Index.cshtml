@@ -47,7 +47,6 @@
                name="ArticleImage"
                multiple="multiple" />
         <input type="submit" value="enter" />
-
     </form>
 
 
@@ -55,16 +54,17 @@
     {
         @foreach (var article in Model.Articles)
         {
-            <div style="border: 1px solid black; width: 300px; padding: 15px; margin: 10px">
-                <h3>@article.name</h3>
-                <i>@article.author.name</i> <br />
-                <i>@article.date</i>
-                <h4>@article.header</h4>
-                <p>@article.text</p>
-                <form method="post" asp-controller="Admin" asp-action="DeleteArticle">
-                    <button type="submit" name="id" value="@article.id"><p style="color: blue; text-decoration: underline">Удалить</p></button>
-                </form>
-            </div>
+<div style="border: 1px solid black; width: 300px; padding: 15px; margin: 10px">
+    <h3>@article.name</h3>
+    <i>@article.author.name</i> <br />
+    <i>@article.date</i>
+    <h4>@article.header</h4>
+    <p>@article.text</p>
+    <form method="post" asp-controller="Admin" asp-action="DeleteArticle">
+        <button type="submit" name="id" value="@article.id"><p style="color: blue; text-decoration: underline">Удалить</p></button>
+    </form>
+    <a asp-controller="Admin" asp-action="Article" asp-route-id="@article.id.ToString()">Редактировать</a>
+</div>
         }
     }
 </div>

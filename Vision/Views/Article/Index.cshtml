@@ -6,12 +6,32 @@
 	<link rel="stylesheet" href="~/css/site.css" />
 </head>
 @if(Model != null){
-    <img src = "@ViewBag.ImageDataUrl" />
-    <p>Name: @Model.name</p>
-    <p>Date: @Model.date</p>
-    <p>Header: @Model.header</p>
-    <p>Author: @Model.author?.name</p>
-    <p>Text: @Model.text</p>
+	<div class = "container-fluid">
+		<div class = "article">
+			<div class="row">
+				<div class="col-6">
+					<div class="namearticle">
+					<p>@Model.name</p>
+					<p>Header: @Model.header</p>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="articletime">
+						<p>@Model.date</p>
+					</div>
+				</div>
+			</div>
+			<div class="articleauthor">
+				<p>Author: @Model.author?.name</p>
+			</div>
+			<div class="articleimage">
+				<img src = "@ViewBag.ImageDataUrl" />
+			</div>
+			<div class = "articletext">
+				<p>@Model.text</p>
+			</div>
+		</div>
+	</div>
 
 <div class="rating-area">
 	<form asp-action = "Assess" method = "post">
@@ -26,7 +46,7 @@
 	<input type="radio" id="star-1" name="rating" value="1">
 	<label for="star-1" title="Оценка «1»"></label>
 	<input asp-for="id" type="hidden" name = "articleId"/>
-	<button type = "submit">Send an assessment</button>
+	<button type = "submit" class="btn btn-primary">Send an assessment</button>
     </form>
 	@if(Model.AverageAssessment != 0){
 		<p>Average rating: @Model.AverageAssessment</p>
