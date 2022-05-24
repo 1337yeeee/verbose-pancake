@@ -1,0 +1,22 @@
+﻿@model Article
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<form method="post" asp-controller="Admin" asp-action="UpdateArticle">
+    <h3>@Model.name</h3><br />
+    <p>заменить на новое</p>
+    <input type="text" name="name" placeholder="Новое название" />
+    <br /><br />
+    <h4>@Model.header</h4><br />
+    <p>заменить заголовок</p>
+    <input type="text" name="header" placeholder="Новый заголовок" />
+    <br /><br />
+    <p>изменить текст статьи</p><br />
+    <p><i>@Model.text</i></p>
+    <br /><br />
+    <input type="text" name="text" placeholder="Новый текст" />
+    <input asp-for = "id" name="id" type="hidden"/>
+    <br /><br />
+    <input type="submit" value="Отправить" />
+</form>

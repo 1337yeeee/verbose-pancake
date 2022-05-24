@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Vision.Models;
 
@@ -145,6 +146,21 @@ namespace Vision.Controllers {
 			_context.Products.Remove(product);
 			_context.SaveChanges();
 			return RedirectToAction("Index");
+		}
+
+		[HttpGet]
+		[Route("Admin/Article/{id:guid}")]
+		public IActionResult Article(Guid id) {
+			var article = _context.Articles.FirstOrDefault(x => x.id == id);
+
+			return View(article);
+		}
+
+		[HttpPost]
+		public IActionResult UpdateArticle(string name, string header, string text, string id) {
+			Guid guid = Guid.Parse(id);
+			
+			return Redirect($"/Admin/Article/{id}");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
