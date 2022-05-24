@@ -14,6 +14,8 @@ namespace Vision {
 		//public DbSet<Cart> Carts { get; set; }
 		//public DbSet<Favorite> Favorites { get; set; }
 		//public DbSet<Shop> Shops { get; set; }
+
+		public DbSet<Assessment> Assessments { get; set; }
 		public DbSet<Brand> Brands { get; set; }
 		public DbSet<Image> Images { get; set; }
 		//public DbSet<Test> Articles { get; set; }

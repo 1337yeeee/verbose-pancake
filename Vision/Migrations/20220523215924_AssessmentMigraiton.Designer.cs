@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vision;
 
 namespace Vision.Migrations
 {
     [DbContext(typeof(DbContext))]
-    partial class DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220523215924_AssessmentMigraiton")]
+    partial class AssessmentMigraiton
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,9 +23,6 @@ namespace Vision.Migrations
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
-                    b.Property<double>("AverageAssessment")
-                        .HasColumnType("REAL");
 
                     b.Property<Guid>("authorID")
                         .HasColumnType("TEXT");
@@ -53,13 +52,15 @@ namespace Vision.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ArticleId")
+                    b.Property<Guid?>("Articleid")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Rating")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id");
+
+                    b.HasIndex("Articleid");
 
                     b.ToTable("Assessments");
                 });
@@ -189,13 +190,7 @@ namespace Vision.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Login")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
@@ -218,6 +213,13 @@ namespace Vision.Migrations
                         .IsRequired();
 
                     b.Navigation("author");
+                });
+
+            modelBuilder.Entity("Vision.Models.Assessment", b =>
+                {
+                    b.HasOne("Vision.Models.Article", null)
+                        .WithMany("Assessments")
+                        .HasForeignKey("Articleid");
                 });
 
             modelBuilder.Entity("Vision.Models.Image", b =>
@@ -258,6 +260,8 @@ namespace Vision.Migrations
 
             modelBuilder.Entity("Vision.Models.Article", b =>
                 {
+                    b.Navigation("Assessments");
+
                     b.Navigation("img");
 
                     b.Navigation("productList");
