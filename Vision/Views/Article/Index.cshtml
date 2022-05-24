@@ -30,6 +30,12 @@
 			<div class = "articletext">
 				<p>@Model.text</p>
 			</div>
+			<div class= "articleproduct">
+				@if(Model.productList?.Count != 0){
+					<a asp-controller="Product" asp-action="Index" asp-route-id = "@Model.productList?[0].id">@Model.productList?[0].name</a>
+
+				}
+			</div>
 		</div>
 	</div>
 
