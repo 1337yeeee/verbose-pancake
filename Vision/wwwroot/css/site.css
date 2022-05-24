@@ -118,3 +118,15 @@ body {
 .rate-area > label:active {
     position: relative;
 }
+
+.registrationform {
+    width: 50%;
+    margin: auto;
+}
+.registrationform input {
+    margin-bottom: 2%;
+
+}
+.submitbutton{
+    text-align: center;
+}

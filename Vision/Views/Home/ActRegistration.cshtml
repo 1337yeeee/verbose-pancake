@@ -1,27 +1,36 @@
 ﻿@model ViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="newdata new-user">
-         <h3>Регистрация</h3>
-<form method="post" asp-controller="Home" asp-action="ActRegistration">
+<div class="registrationform">
+    <h3>Регистрация</h3>
+    <form method="post" asp-controller="Home" asp-action="ActRegistration">
+    <div class = "name">
+        <input Name="Name" placeholder="Name" required class="form-control"/>
 
-    <input Name="Name" placeholder="Name" required />
-     <input Name="Sexgender" placeholder="Sexgender" required/>
-    <input Name="Age" placeholder="Age" required/>
-    <input Name="Phone" placeholder="Phone" required/>
-    <input Name="Login" placeholder="Login" required/>
-    <input Name="Password" placeholder="Password" required/>
-    <button type="submit">Submit</button>
+    </div>
+    <div class="sex">
+     <input Name="Sexgender" placeholder="Sexgender" required  class = "form-control"/>
+
+    </div>
+    <div class="age">
+    <input Name="Age" placeholder="Age" required class = "form-control"/>
+
+    </div>
+    <div class="login">
+    <input Name="Phone" placeholder="Phone" required class = "form-control"/>
+
+    </div>
+    <div class="login">
+    <input Name="Login" placeholder="Login" required class = "form-control"/>
+
+    </div>
+    <div class="password">
+    <input Name="Password" placeholder="Password" required class = "form-control"/>
+    </div>
+    <div class="submitbutton">
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
 </form>
-@if (Model != null)
-{
-    @foreach (var user in Model.Users)
-    {
-        <p>@user.Name 
-           @user.Sexgender
-           @user.Age
-           @user.Phone
-           @user.Login
-           @user.Password</p>
-    }
-}
+
 </div>
