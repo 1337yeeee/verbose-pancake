@@ -108,9 +108,11 @@ namespace Vision.Controllers
 			return RedirectToAction("Index");
 		}
         [HttpGet]
-		public IActionResult Registration()
+		public IActionResult ActRegistration()
         {
-			return View();
+			ViewModel viewmodel = new ViewModel();
+			viewmodel.Users = _context.Users.ToList();
+			return View(viewmodel);
         }
 		[HttpPost]
 		public IActionResult ActRegistration(string Login, string Password, string Name, string Sexgender, string Phone, int Age, Guid Id)
