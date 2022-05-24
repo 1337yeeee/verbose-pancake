@@ -9,19 +9,38 @@
         <input type="radio" name="SearchModel" value="Author" /> Поиск по авторам <br />
         <br /><p style="font-size: 24px;"><b>Критерии</b></p><br />
         <input type="text" name="name" placeholder="Называние" />
-        <input type="text" name="authorName" placeholder="Имя Автора" />
+        <input type="text" name="authorName" placeholder="Имя Автора" list="authorsList"/>
         <input type="text" name="words" placeholder="ключевые слова" />
-        <input type="text" name="brandName" placeholder="Бренд" />
-        <input type="text" name="categoryName" placeholder="Категория" />
+        <input type="text" name="brandName" placeholder="Бренд" list="brandsList"/>
+        <input type="text" name="categoryName" placeholder="Категория" list="categoriesList"/>
         <p>Рейтинг</p>
-        <input type="number" name="ratingStart" min="0" max="5" placeholder="от" step="0.2"/>
-        <input type="number" name="ratingEnd" min="0" max="5" placeholder="до" step="0.2"/>
+        <input type="number" name="ratingStart" min="0" max="5" placeholder="от" step="0.2" />
+        <input type="number" name="ratingEnd" min="0" max="5" placeholder="до" step="0.2" />
         <p>Цена</p>
-        <input type="number" name="priceStart" min="0" max="9999999999" placeholder="от" step="1000"/>
-        <input type="number" name="priceEnd" min="0" max="9999999999" placeholder="до" step="1000"/>
+        <input type="number" name="priceStart" min="0" max="9999999999" placeholder="от" step="1000" />
+        <input type="number" name="priceEnd" min="0" max="9999999999" placeholder="до" step="1000" />
         <input type="submit" value="enter" />
     </form>
 </div>
+
+<datalist id="authorsList">
+    @foreach (var author in Model.Authors)
+    {
+        <option>@author.name</option>
+    }
+</datalist>
+<datalist id="brandsList">
+    @foreach (var brand in Model.Brands)
+    {
+        <option>@brand.name</option>
+    }
+</datalist>
+<datalist id="categoriesList">
+    @foreach (var category in Model.Categories)
+    {
+        <option>@category.name</option>
+    }
+</datalist>
 
 <div class="result">
     @if (Model.ModelOfSearch == "Article")

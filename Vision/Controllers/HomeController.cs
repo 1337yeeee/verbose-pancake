@@ -142,7 +142,7 @@ namespace Vision.Controllers
 			User user = new User() { Id = Guid.NewGuid(), Name= Name,Sexgender= Sexgender,Age=Age, Phone = Phone, Login=Login, Password= Password  };
 			_context.Users.Add(user);
 			_context.SaveChanges();
-			return View();
+			return RedirectToAction("ActRegistration");
 		}
 
 		//=========================IActionResult HttpGet

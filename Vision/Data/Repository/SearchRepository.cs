@@ -24,7 +24,7 @@ namespace Vision.Data.Repository {
 			} if(authorName != null) {
 				articles = articles.Where(x => x.author.name == authorName).ToList();
 			} if(words != null) {
-				articles = articles.Where(x => x.text.Contains(words)).ToList();
+				articles = articles.Where(x => x.text.Contains(words) == true).ToList();
 			}
 
 			return articles;

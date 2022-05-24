@@ -5,6 +5,7 @@ using Vision.Data.Repository;
 using Vision.Models;
 using Vision.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Vision.Controllers {
 	public class SearchController : Controller {
@@ -28,8 +29,19 @@ namespace Vision.Controllers {
 
 		[HttpGet]
 		public IActionResult Index(ViewModel model = null) {
+			List<Author> authors = _context.Authors.ToList();
+			List<Article> articles = _context.Articles.ToList();
+			List<Brand> brands = _context.Brands.ToList();
+			List<Category> categories = _context.Categories.ToList();
+			List<Product> products = _context.Products.ToList();
+			List<User> users = _context.Users.ToList();
 
-			ViewModel viewModel = new ViewModel() {Authors = _anwerAut, Articles = _anwerArt, Brands = _anwerBra, Products = _anwerPro, ModelOfSearch = _SearchModel};
+			ViewModel viewModel = new ViewModel() {ModelOfSearch = _SearchModel,
+				Authors = (_SearchModel== "Author")?_anwerAut:authors,
+				Articles = (_SearchModel == "Article") ? _anwerArt : articles,
+				Brands = (_SearchModel == "Brand") ? _anwerBra : brands,
+				Products = (_SearchModel == "Product") ? _anwerPro : products,
+				Categories = categories, Users = users };
 
 			return View(viewModel);
 		}
