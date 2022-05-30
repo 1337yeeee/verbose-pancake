@@ -1,20 +1,9 @@
 ﻿<Properties StartupConfiguration="{84034BB8-AC53-4BA3-AEB8-F9058F514B4F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Vision/Models/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Vision/Views/Article/Index.cshtml">
     <Files>
-      <File FileName="Vision/Controllers/HomeController.cs" Line="24" Column="55" IsPinned="True" />
-      <File FileName="Vision/Controllers/AdminController.cs" IsPinned="True" />
-      <File FileName="Vision/Interfaces/ISearchRepository.cs" />
-      <File FileName="Vision/Models/SearchModel.cs" />
-      <File FileName="Vision/Data/Repository/SearchRepository.cs" />
-      <File FileName="Vision/Views/Home/Index.cshtml" />
-      <File FileName="Vision/Views/Search/Index.cshtml" />
-      <File FileName="Vision/Controllers/SearchController.cs" />
-      <File FileName="Vision/Data/DbContext.cs" />
-      <File FileName="Vision/Data/Repository/UserRepository.cs" />
-      <File FileName="Vision/Data/Repository/ProductRepository.cs" />
-      <File FileName="Vision/Interfaces/IUser.cs" Line="1" Column="1" />
-      <File FileName="Vision/Startup.cs" Line="1" Column="1" />
-      <File FileName="Vision/Models/User.cs" Line="1" Column="1" />
+      <File FileName="Vision/Views/Article/Index.cshtml" Line="15" Column="34" />
+      <File FileName="Vision/wwwroot/css/Article.css" />
+      <File FileName="Vision/Controllers/AdminController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,17 +11,13 @@
           <Node name="Vision" expanded="True">
             <Node name="Vision" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="Repository" expanded="True" />
-              </Node>
-              <Node name="Interfaces" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="User.cs" selected="True" />
-              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
-                <Node name="Search" expanded="True" />
-                <Node name="Shared" expanded="True" />
+                <Node name="Article" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -44,7 +29,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/admin/ProjectsVS/Vision/Vision/Controllers/AdminController.cs" relfile="Vision/Controllers/AdminController.cs" line="168" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
