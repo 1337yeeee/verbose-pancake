@@ -123,7 +123,7 @@ namespace Vision.Controllers {
 
 		[HttpPost]
 		public IActionResult DeleteArticle(Guid id) {
-			var article = _context.Articles.FirstOrDefault(x => x.id == id);
+			var article = _context.Articles.Include(a => a.author).FirstOrDefault(x => x.id == id);
 			_context.Articles.Remove(article);
 			_context.SaveChanges();
 			return RedirectToAction("Index");

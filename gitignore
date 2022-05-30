@@ -3,6 +3,8 @@
 [Oo]bj/
 Migrations/
 .vs/
+Vision/obj/
+obj/
 
 Vision/bin/
 
