@@ -110,7 +110,12 @@ namespace Vision.Controllers {
 
 		[HttpPost]
 		public IActionResult DeleteAuthor(Guid id) {
-			var author = _context.Authors.FirstOrDefault(x => x.id == id);
+			var author = _context.Authors.Include(a => a.articles).FirstOrDefault(x => x.id == id);
+			var ID = new Guid();
+			foreach (var article in author.articles) {
+				article.author = new Author { name = "Default", rating = 0, id = ID };
+				article.authorID = ID;
+			}
 			_context.Authors.Remove(author);
 			_context.SaveChanges();
 			return RedirectToAction("Index");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using Vision.Models;
 
 namespace Vision {
@@ -22,25 +23,30 @@ namespace Vision {
 
 		public string DbPath { get; }
 
-		public DbContext() {
+		/*public DbContext() {
 			// var folder = Environment.SpecialFolder.LocalApplicationData;
 			// var path = Environment.GetFolderPath(folder);
 			//DbPath = System.IO.Path.Join(path, "Vision.db");
 			DbPath = System.IO.Path.Join("Data", "Vision.db");
+		}*/
+		public DbContext(DbContextOptions<DbContext> options)
+			: base(options)
+		{
+			Database.EnsureCreated();   
 		}
 
 		// The following configures EF to create a Sqlite database file in the
 		// special "local" folder for your platform.
 
-		protected override void OnConfiguring(DbContextOptionsBuilder options)
-			=> options.UseSqlite($"Data Source={DbPath}");
+		/*protected override void OnConfiguring(DbContextOptionsBuilder options)
+			=> options.UseSqlite($"Data Source={DbPath}");*/
+		
+		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+		//    optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=AppDbContext;Trusted_Connection=True;MultipleActiveResultSets=true;");
+		//}
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        //    optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=AppDbContext;Trusted_Connection=True;MultipleActiveResultSets=true;");
-        //}
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        //    modelBuilder.Entity<Category>().HasNoKey();
-        //}
-    }
+		//protected override void OnModelCreating(ModelBuilder modelBuilder) {
+		//    modelBuilder.Entity<Category>().HasNoKey();
+		//}
+	}
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +25,10 @@ namespace Vision
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddMvc();
+			string connection = Configuration.GetConnectionString("DefaultConnection");
+			// добавляем контекст ApplicationContext в качестве сервиса в приложение
+			services.AddDbContext<DbContext>(options =>
+				options.UseSqlServer(connection));
 			services.AddControllersWithViews();
 			services.AddTransient<IArticle, ArticleReposytory>();
 			services.AddTransient<IProduct, ProductRepository>();
@@ -32,7 +37,7 @@ namespace Vision
 			services.AddTransient<IAuthor, AuthorRepository>();
 			services.AddTransient<IUser, UserRepository>();
 			services.AddTransient<ISearchRepository, SearchRepository>();
-			services.AddDbContext<DbContext>();
+			//services.AddDbContext<DbContext>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
