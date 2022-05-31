@@ -11,14 +11,10 @@ namespace Vision {
 		public DbSet<Article> Articles { get; set; }
 		public DbSet<Author> Authors { get; set; }
 		public DbSet<User> Users { get; set; }
-		//public DbSet<Cart> Carts { get; set; }
-		//public DbSet<Favorite> Favorites { get; set; }
-		//public DbSet<Shop> Shops { get; set; }
 
 		public DbSet<Assessment> Assessments { get; set; }
 		public DbSet<Brand> Brands { get; set; }
 		public DbSet<Image> Images { get; set; }
-		//public DbSet<Test> Articles { get; set; }
 
 		public string DbPath { get; }
 
@@ -35,12 +31,15 @@ namespace Vision {
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 			=> options.UseSqlite($"Data Source={DbPath}");
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        //    optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=AppDbContext;Trusted_Connection=True;MultipleActiveResultSets=true;");
-        //}
+		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+		//    optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=AppDbContext;Trusted_Connection=True;MultipleActiveResultSets=true;");
+		//}
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        //    modelBuilder.Entity<Category>().HasNoKey();
-        //}
-    }
+		protected override void OnModelCreating(ModelBuilder modelBuilder) {
+			modelBuilder.Entity<Author>()
+.HasMany(e => e.articles)
+.WithOne(e => e.author)
+.HasForeignKey(e => e.authorID);
+		}
+	}
 }

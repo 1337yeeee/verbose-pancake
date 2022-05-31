@@ -16,6 +16,10 @@ namespace Vision.Controllers
 		private readonly ILogger<HomeController> _logger;
 		private readonly DbContext _context;
 
+		// temporary
+		static private bool added = false;
+		//
+
 
 		public HomeController(ILogger<HomeController> logger, IBrand brandManager,
 			ICategory categoryManager, IArticle articleManager, IAuthor authorManager,
@@ -26,11 +30,11 @@ namespace Vision.Controllers
 		}
 		[HttpGet]
 		public IActionResult Index() {
-			List<Author> authors = _context.Authors.ToList();
-			List<Article> articles = _context.Articles.ToList();
-			List<Brand> brands = _context.Brands.ToList();
-			List<Category> categories = _context.Categories.ToList();
-			List<Product> products = _context.Products.ToList();
+			List<Author> authors = _context.Authors.Where(x => x. name != "Default").ToList();
+			List<Article> articles = _context.Articles.Where(x => x.name != "Default").ToList();
+			List<Brand> brands = _context.Brands.Where(x => x.name != "Default").ToList();
+			List<Category> categories = _context.Categories.Where(x => x.name != "Default").ToList();
+			List<Product> products = _context.Products.Where(x => x.name != "Default").ToList();
 			List<User> users= _context.Users.ToList();
 			
 			ViewModel viewModel = new ViewModel() { Authors = authors, Articles = articles, Brands= brands, Categories= categories, Products= products, Users = users };

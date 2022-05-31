@@ -3,10 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Vision.Migrations
 {
-    public partial class NewOne : Migration
+    public partial class newone : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Assessments",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Rating = table.Column<int>(type: "INTEGER", nullable: false),
+                    ArticleId = table.Column<Guid>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Assessments", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Authors",
                 columns: table => new
@@ -47,6 +60,23 @@ namespace Vision.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Sexgender = table.Column<string>(type: "TEXT", nullable: true),
+                    Age = table.Column<int>(type: "INTEGER", nullable: false),
+                    Phone = table.Column<string>(type: "TEXT", nullable: true),
+                    Login = table.Column<string>(type: "TEXT", nullable: true),
+                    Password = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Articles",
                 columns: table => new
                 {
@@ -55,7 +85,8 @@ namespace Vision.Migrations
                     header = table.Column<string>(type: "TEXT", nullable: true),
                     authorID = table.Column<Guid>(type: "TEXT", nullable: false),
                     date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    text = table.Column<string>(type: "TEXT", nullable: true)
+                    text = table.Column<string>(type: "TEXT", nullable: true),
+                    AverageAssessment = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,7 +104,8 @@ namespace Vision.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    path = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageTitle = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageData = table.Column<byte[]>(type: "BLOB", nullable: true),
                     Articleid = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -164,7 +196,13 @@ namespace Vision.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Assessments");
+
+            migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Brands");

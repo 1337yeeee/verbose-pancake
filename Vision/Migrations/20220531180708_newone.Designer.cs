@@ -9,8 +9,8 @@ using Vision;
 namespace Vision.Migrations
 {
     [DbContext(typeof(DbContext))]
-    [Migration("20220524094252_newone3")]
-    partial class newone3
+    [Migration("20220531180708_newone")]
+    partial class newone
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

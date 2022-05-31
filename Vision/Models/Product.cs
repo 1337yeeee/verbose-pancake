@@ -1,8 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vision.Models {
 	public class Product {
+
+		[NotMapped]
+		public static Product _default { get; set; }
 
 		[Key]
 		public Guid id { get; set; }
@@ -17,8 +21,5 @@ namespace Vision.Models {
 
 		public Guid brandID { get; set; }
 		public Brand brand { get; set; }
-
-		public Product() {
-		}
 	}
 }

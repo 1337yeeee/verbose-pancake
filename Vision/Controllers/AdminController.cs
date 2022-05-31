@@ -70,7 +70,6 @@ namespace Vision.Controllers {
 			if (newBrand == null) {
 				return RedirectToAction("Index");
 			}
-			//	newBrand.brands = new List<Brand>();
 			_context.Brands.Add(newBrand);
 			_context.SaveChanges();
 			return RedirectToAction("Index");
@@ -81,7 +80,6 @@ namespace Vision.Controllers {
 			if (newCategory == null) {
 				return RedirectToAction("Index");
 			}
-			//	newBrand.brands = new List<Brand>();
 			_context.Categories.Add(newCategory);
 			_context.SaveChanges();
 			return RedirectToAction("Index");
@@ -111,10 +109,9 @@ namespace Vision.Controllers {
 		[HttpPost]
 		public IActionResult DeleteAuthor(Guid id) {
 			var author = _context.Authors.Include(a => a.articles).FirstOrDefault(x => x.id == id);
-			var ID = new Guid();
 			foreach (var article in author.articles) {
-				article.author = new Author { name = "Default", rating = 0, id = ID };
-				article.authorID = ID;
+				article.author = _context.Authors.Where(x => x.name == "Default").ToList()[0];
+				article.authorID = article.author.id;
 			}
 			_context.Authors.Remove(author);
 			_context.SaveChanges();
@@ -123,9 +120,15 @@ namespace Vision.Controllers {
 
 		[HttpPost]
 		public IActionResult DeleteArticle(Guid id) {
-			var article = _context.Articles.Include(a => a.author).FirstOrDefault(x => x.id == id);
-			_context.Articles.Remove(article);
-			_context.SaveChanges();
+			var article = _context.Articles.FirstOrDefault(x => x.id == id);
+			//article.Author.articles.Remove(article);
+			try {
+				_context.Articles.Remove(article);
+				_context.SaveChanges();
+			}
+			catch (Exception ex) {
+				return this.Content(ex.InnerException.Message);
+			}
 			return RedirectToAction("Index");
 		}
 

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vision.Models {
 	public class Article {
+
+		[NotMapped]
+		public static Article _default { get; set; }
 
 		[Key]
 		public Guid id { get; set; }
@@ -16,7 +20,5 @@ namespace Vision.Models {
 		public List<Image> img { get; set; }
 		public List<Product> productList { get; set; }
 		public double AverageAssessment { get; set; }
-		public Article() {
-		}
 	}
 }
