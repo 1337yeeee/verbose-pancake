@@ -159,17 +159,142 @@ namespace Vision.Controllers {
 		[HttpGet]
 		[Route("Admin/Article/{id:guid}")]
 		public IActionResult Article(Guid id) {
-			var article = _context.Articles.FirstOrDefault(x => x.id == id);
+			var articles = _context.Articles.Include(x=>x.banner).Include(x=>x.poster).ToList();
+			var authors = _context.Authors.ToList();
 
-			return View(article);
+			if (id != Guid.Empty) {
+				var article = articles.FirstOrDefault(x => x.id == id);
+				Image banner = article != null ? article.banner : null;
+				if (banner != null) {
+					string imageBase64Data =
+					Convert.ToBase64String(banner.ImageData);
+					string imageDataURL =
+					string.Format("data:image/jpg;base64,{0}",
+					imageBase64Data);
+					ViewBag.bannerTitle = banner.ImageTitle;
+					ViewBag.bannerDataUrl = imageDataURL;
+				}
+
+				Image poster = articles.FirstOrDefault(x => x.id == id).poster ?? null;
+				if (poster != null) {
+					string imageBase64Data =
+					Convert.ToBase64String(poster.ImageData);
+					string imageDataURL =
+					string.Format("data:image/jpg;base64,{0}",
+					imageBase64Data);
+					ViewBag.posterTitle = poster.ImageTitle;
+					ViewBag.posterDataUrl = imageDataURL;
+				}
+			}
+
+			return View(new ViewModel { Articles = articles, id = id, Authors = authors});
+		}
+
+		//[HttpPost]
+		//public IActionResult UpdateArticle(string name, string header, string text, string id) {
+		//	Guid guid = Guid.Parse(id);
+			
+		//	return Redirect($"/Admin/Article/{id}");
+		//}
+
+		[HttpPost]
+		[Route("Admin/Article/{id:guid}")]
+		public IActionResult AddArticle(Guid id, string name, string header, string authorName, string text) {
+			Author author = _context.Authors.FirstOrDefault(x => x.name == authorName);
+			if (author == null) return RedirectToAction("Index");
+			Article article;
+
+			if (_context.Articles.Any(x => x.id == id) == false) {
+				Article newArticle = new Article { id = Guid.NewGuid(), name = name, header = header, text = text, date = DateTime.Now, img = new List<Image>(), productList = new List<Product>(), author = author, authorID = author.id };
+				if (newArticle == null) {
+					return RedirectToAction("Index");
+				}
+
+				var file = Request.Form.Files.FirstOrDefault(f => f.Name == "bannerImg");
+				if (file != null) {
+					Image image = new Image() { id = Guid.NewGuid() };
+					image.ImageTitle = file.FileName;
+					MemoryStream ms = new MemoryStream();
+					file.CopyTo(ms);
+					image.ImageData = ms.ToArray();
+					newArticle.banner = image;
+					_context.Images.Add(image);
+				}
+				file = Request.Form.Files.FirstOrDefault(f => f.Name == "posterImg");
+				if (file != null) {
+					Image image = new Image() { id = Guid.NewGuid() };
+					image.ImageTitle = file.FileName;
+					MemoryStream ms = new MemoryStream();
+					file.CopyTo(ms);
+					image.ImageData = ms.ToArray();
+					newArticle.poster = image;
+					_context.Images.Add(image);
+				}
+				article = newArticle;
+				_context.Articles.Add(newArticle);
+			} else {
+				article = _context.Articles.FirstOrDefault(x => x.id == id);
+
+				var file = Request.Form.Files.FirstOrDefault(f => f.Name == "bannerImg");
+				if (file != null) {
+					Image image = new Image() { id = Guid.NewGuid() };
+					image.ImageTitle = file.FileName;
+					MemoryStream ms = new MemoryStream();
+					file.CopyTo(ms);
+					image.ImageData = ms.ToArray();
+					article.banner = image;
+					_context.Images.Add(image);
+				}
+				file = Request.Form.Files.FirstOrDefault(f => f.Name == "posterImg");
+				if (file != null) {
+					Image image = new Image() { id = Guid.NewGuid() };
+					image.ImageTitle = file.FileName;
+					MemoryStream ms = new MemoryStream();
+					file.CopyTo(ms);
+					image.ImageData = ms.ToArray();
+					article.poster = image;
+					_context.Images.Add(image);
+				}
+				article.name = name;
+				article.author = author;
+				article.header = header;
+				article.text = text;
+				_context.Articles.Update(article);
+			}
+			_context.SaveChanges();
+			ViewBag.id = id;
+
+			//return RedirectToAction("Article");
+			return Redirect($"/Admin/Article/{article.id}");
+		}
+
+
+		[HttpGet]
+		//[Route("Admin/AddProduct/{id:guid}")]
+		public IActionResult AddProduct() {
+			var products = _context.Products.Include(x => x.category).Include(x => x.brand).Include(x => x.img).ToList();
+			var images = _context.Images.ToList();
+
+			foreach(var img in images) {
+				if (img != null) {
+					string imageBase64Data =
+					Convert.ToBase64String(img.ImageData);
+					string imageDataURL =
+					string.Format("data:image/jpg;base64,{0}",
+					imageBase64Data);
+					img.DataImgUrl = imageDataURL;
+				}
+			}
+
+			return View(new ViewModel { Products = products });
 		}
 
 		[HttpPost]
-		public IActionResult UpdateArticle(string name, string header, string text, string id) {
-			Guid guid = Guid.Parse(id);
-			
-			return Redirect($"/Admin/Article/{id}");
+		public IActionResult AddProduct(Guid product) {
+
+			return RedirectToAction("AddProduct");
 		}
+
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error() {

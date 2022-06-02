@@ -212,3 +212,4 @@ C:/Users/Adyan/OneDrive/Рабочий стол/Проект/verbose-pancake/Vis
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Vision.Views.pdb
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Vision.csproj.CopyComplete
 /Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Vision.genruntimeconfig.cache
+/Users/admin/ProjectsVS/Vision/Vision/obj/Debug/net5.0/Razor/Views/Admin/AddProduct.cshtml.g.cs

@@ -28,6 +28,9 @@ namespace Vision.Migrations
                     b.Property<Guid>("authorID")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("bannerid")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("date")
                         .HasColumnType("TEXT");
 
@@ -37,12 +40,19 @@ namespace Vision.Migrations
                     b.Property<string>("name")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("posterid")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("text")
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
                     b.HasIndex("authorID");
+
+                    b.HasIndex("bannerid");
+
+                    b.HasIndex("posterid");
 
                     b.ToTable("Articles");
                 });
@@ -122,6 +132,9 @@ namespace Vision.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<Guid?>("Articleid")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataImgUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("ImageData")
@@ -217,7 +230,19 @@ namespace Vision.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Vision.Models.Image", "banner")
+                        .WithMany()
+                        .HasForeignKey("bannerid");
+
+                    b.HasOne("Vision.Models.Image", "poster")
+                        .WithMany()
+                        .HasForeignKey("posterid");
+
                     b.Navigation("author");
+
+                    b.Navigation("banner");
+
+                    b.Navigation("poster");
                 });
 
             modelBuilder.Entity("Vision.Models.Image", b =>

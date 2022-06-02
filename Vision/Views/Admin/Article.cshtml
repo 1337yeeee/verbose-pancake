@@ -1,9 +1,11 @@
-﻿@model Article
+﻿@model ViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
+<head>
+    <link rel="stylesheet" href="~/css/Article.css" />
+</head>
 
-
-<form method="post" asp-controller="Admin" asp-action="UpdateArticle">
+@*<form method="post" asp-controller="Admin" asp-action="UpdateArticle">
     <h3>@Model.name</h3><br />
     <p>заменить на новое</p>
     <input type="text" name="name" placeholder="Новое название" />
@@ -19,4 +21,213 @@
     <input asp-for = "id" name="id" type="hidden"/>
     <br /><br />
     <input type="submit" value="Отправить" />
-</form>
+</form>*@
+
+
+<div class="admin-row row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="article">
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="text-center">Выберите Статью</p>
+                    <div class="choose">
+                        <div class="new-article-button article">
+                            <a class="article-link" asp-controller="Admin" asp-action="Article" asp-route-id="@Guid.Empty.ToString()">
+                                <span>Добавить статью</span>
+                            </a>
+                        </div>
+                        @foreach (var article in Model.Articles)
+                        {
+                            <div class="article">
+                                <a class="article-link" asp-controller="Admin" asp-action="Article" asp-route-id="@article.id.ToString()">
+                                    <p><b>@article.name</b></p>
+                                    <p>@article.header</p>
+                                    <p><i>@article.author.name</i></p>
+                                    <p class="small text-muted article-text">@article.text</p>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <form method="post" asp-controller="Admin" asp-action="AddArticle" asp-route-id="@Model.id.ToString()" class="article-form" enctype="multipart/form-data"
+                          >
+                        <div class="article-chosen">
+                            @if (Model.id != Guid.Empty)
+                            {
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="name">Название</label>
+                                    <input class="text-field__input" type="text" name="name" required value=@Model.Articles.FirstOrDefault(x => x.id == Model.id).name>
+                                </div>
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="header">Заголовок</label>
+                                    <input class="text-field__input" type="text" name="header" required value=@Model.Articles.FirstOrDefault(x => x.id == Model.id).header>
+                                </div>
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="authorName">Автор</label>
+                                    <input class="text-field__input" type="text" name="authorName" required value=@Model.Articles.FirstOrDefault(x => x.id == Model.id).author.name list="authorsList">
+                                </div>
+                                <datalist id="authorsList">
+                                    @foreach (var author in Model.Authors)
+                                    {
+                                        <option>@author.name</option>
+                                    }
+                                </datalist>
+                                {
+                                    var image = ViewBag.bannerDataUrl;
+                                    <img src="@image" class="img-fluid banner">
+                                }
+
+
+                                @*<img src="@" class="img-fluid banner">*@
+                                <div class="input__wrapper">
+                                    <input name="bannerImg" type="file" id="input__file1" class="input input__file input__file1" accept="image/*">
+                                    <label for="input__file1" class="input__file-button">
+                                        <span class="input__file-icon-wrapper"><img class="input__file-icon" src="~/img/upload.svg" alt="Выбрать файл" width="25"></span>
+                                        <span class="input__file-button-text input__file-button-text1">Выберите баннер</span>
+                                    </label>
+                                </div>
+                                <script>let inputs = document.querySelectorAll('.input__file1');
+                                    Array.prototype.forEach.call(inputs, function (input) {
+                                        let label = input.nextElementSibling,
+                                            labelVal = label.querySelector('.input__file-button-text1').innerText;
+
+                                        input.addEventListener('change', function (e) {
+                                            let countFiles = '';
+                                            if (this.files && this.files.length >= 1)
+                                                countFiles = this.files.length;
+
+                                            if (countFiles)
+                                                label.querySelector('.input__file-button-text1').innerText = 'Выбрано файлов: ' + countFiles;
+                                            else
+                                                label.querySelector('.input__file-button-text1').innerText = labelVal;
+                                        });
+                                    });</script>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="@ViewBag.posterDataUrl" class="img-fluid">
+                                        <div class="input__wrapper">
+                                            <input name="posterImg" type="file" id="input__file2" class="input input__file input__file2" accept="image/*">
+                                            <label for="input__file2" class="input__file-button">
+                                                <span class="input__file-icon-wrapper"><img class="input__file-icon" src="~/img/upload.svg" alt="Выбрать файл" width="25"></span>
+                                                <span class="input__file-button-text input__file-button-text2">Выберите постер</span>
+                                            </label>
+                                        </div>
+                                        <script>let inputs = document.querySelectorAll('.input__file2');
+                                            Array.prototype.forEach.call(inputs, function (input) {
+                                                let label = input.nextElementSibling,
+                                                    labelVal = label.querySelector('.input__file-button-text2').innerText;
+
+                                                input.addEventListener('change', function (e) {
+                                                    let countFiles = '';
+                                                    if (this.files && this.files.length >= 1)
+                                                        countFiles = this.files.length;
+
+                                                    if (countFiles)
+                                                        label.querySelector('.input__file-button-text2').innerText = 'Выбрано файлов: ' + countFiles;
+                                                    else
+                                                        label.querySelector('.input__file-button-text2').innerText = labelVal;
+                                                });
+                                            });</script>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea name="text" id="texOfArticleEdit">
+									        @Model.Articles.FirstOrDefault(x=>x.id==Model.id).text
+										</textarea>
+                                    </div>
+                                </div>
+                            }
+                            else //id is empty
+                            {
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="name">Название</label>
+                                    <input class="text-field__input" type="text" name="name" required>
+                                </div>
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="header">Заголовок</label>
+                                    <input class="text-field__input" type="text" name="header" required>
+                                </div>
+                                <div class="text-field text-field_floating-3">
+                                    <label class="text-field__label" for="name">Автор</label>
+                                    <input class="text-field__input" type="text" name="author" required>
+                                </div>
+                                <datalist id="authorsList">
+                                    @foreach (var author in Model.Authors)
+                                    {
+                                        <option>@author.name</option>
+                                    }
+                                </datalist>
+                                <img src="~/img/banner2.jpg" class="img-fluid banner">
+                                <div class="input__wrapper">
+                                    <input name="file" type="file" id="input__file1" class="input input__file input__file1" accept="image/*">
+                                    <label for="input__file1" class="input__file-button">
+                                        <span class="input__file-icon-wrapper"><img class="input__file-icon" src="~/img/upload.svg" alt="Выбрать файл" width="25"></span>
+                                        <span class="input__file-button-text input__file-button-text1">Выберите баннер</span>
+                                    </label>
+                                </div>
+                                <script>let inputs = document.querySelectorAll('.input__file1');
+                                    Array.prototype.forEach.call(inputs, function (input) {
+                                        let label = input.nextElementSibling,
+                                            labelVal = label.querySelector('.input__file-button-text1').innerText;
+
+                                        input.addEventListener('change', function (e) {
+                                            let countFiles = '';
+                                            if (this.files && this.files.length >= 1)
+                                                countFiles = this.files.length;
+
+                                            if (countFiles)
+                                                label.querySelector('.input__file-button-text1').innerText = 'Выбрано файлов: ' + countFiles;
+                                            else
+                                                label.querySelector('.input__file-button-text1').innerText = labelVal;
+                                        });
+                                    });</script>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="~/img/zendaya.jpeg" class="img-fluid">
+                                        <div class="input__wrapper">
+                                            <input name="file" type="file" id="input__file2" class="input input__file input__file2" accept="image/*">
+                                            <label for="input__file2" class="input__file-button">
+                                                <span class="input__file-icon-wrapper"><img class="input__file-icon" src="~/img/upload.svg" alt="Выбрать файл" width="25"></span>
+                                                <span class="input__file-button-text input__file-button-text2">Выберите постер</span>
+                                            </label>
+                                        </div>
+                                        <script>let inputs = document.querySelectorAll('.input__file2');
+                                            Array.prototype.forEach.call(inputs, function (input) {
+                                                let label = input.nextElementSibling,
+                                                    labelVal = label.querySelector('.input__file-button-text2').innerText;
+
+                                                input.addEventListener('change', function (e) {
+                                                    let countFiles = '';
+                                                    if (this.files && this.files.length >= 1)
+                                                        countFiles = this.files.length;
+
+                                                    if (countFiles)
+                                                        label.querySelector('.input__file-button-text2').innerText = 'Выбрано файлов: ' + countFiles;
+                                                    else
+                                                        label.querySelector('.input__file-button-text2').innerText = labelVal;
+                                                });
+                                            });</script>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea name="text" id="texOfArticleEdit">
+											    Кстати, некоторые особенности внутренней политики, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями. В целом, конечно, убеждённость некоторых оппонентов не даёт нам иного выбора, кроме определения распределения внутренних резервов и ресурсов.
+											    Идейные соображения высшего порядка, а также новая модель организационной деятельности требует определения и уточнения поставленных обществом задач. Следует отметить, что начало повседневной работы по формированию позиции не оставляет шанса для кластеризации усилий. С учётом сложившейся международной обстановки, граница обучения кадров не даёт нам иного выбора, кроме определения своевременного выполнения сверхзадачи. Безусловно, граница обучения кадров позволяет оценить значение новых принципов формирования материально-технической и кадровой базы. Приятно, граждане, наблюдать, как активно развивающиеся страны третьего мира указаны как претенденты на роль ключевых факторов.
+											    Однозначно, тщательные исследования конкурентов являются только методом политического участия и призваны к ответу. Сложно сказать, почему сделанные на базе интернет-аналитики выводы освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Учитывая ключевые сценарии поведения, внедрение современных методик представляет собой интересный эксперимент проверки анализа существующих паттернов поведения. В своём стремлении повысить качество жизни, они забывают, что существующая теория прекрасно подходит для реализации новых предложений.
+											    Наше дело не так однозначно, как может показаться: синтетическое тестирование предоставляет широкие возможности для переосмысления внешнеэкономических политик. Но сторонники тоталитаризма в науке формируют глобальную экономическую сеть и при этом - указаны как претенденты на роль ключевых факторов. Противоположная точка зрения подразумевает, что непосредственные участники технического прогресса, превозмогая сложившуюся непростую экономическую ситуацию, в равной степени предоставлены сами себе. Ясность нашей позиции очевидна: семантический разбор внешних противодействий позволяет оценить значение как самодостаточных, так и внешне зависимых концептуальных решений. В целом, конечно, семантический разбор внешних противодействий в значительной степени обусловливает важность позиций, занимаемых участниками в отношении поставленных задач!
+										    </textarea>
+                                    </div>
+                                </div>
+                            }
+                            <div class="text-center">
+                                <input class="floating-button" type="submit" value="сохранить">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+

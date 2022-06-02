@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{84034BB8-AC53-4BA3-AEB8-F9058F514B4F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Vision/Views/Article/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Vision/Models/Article.cs">
     <Files>
-      <File FileName="Vision/Views/Article/Index.cshtml" Line="15" Column="34" />
-      <File FileName="Vision/wwwroot/css/Article.css" />
-      <File FileName="Vision/Controllers/AdminController.cs" />
+      <File FileName="Vision/Views/Article/Index.cshtml" Line="124" Column="52" IsPinned="True" />
+      <File FileName="Vision/Controllers/ArticleController.cs" Line="19" Column="44" />
+      <File FileName="Vision/Controllers/AdminController.cs" Line="160" Column="37" />
+      <File FileName="Vision/Views/Admin/Index.cshtml" Line="66" Column="51" />
+      <File FileName="Vision/Models/Article.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,13 +13,17 @@
           <Node name="Vision" expanded="True">
             <Node name="Vision" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Article.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Article" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+                <Node name="Admin" expanded="True" />
+                <Node name="Article" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
+                <Node name="img" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -30,7 +36,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/admin/ProjectsVS/Vision/Vision/Controllers/AdminController.cs" relfile="Vision/Controllers/AdminController.cs" line="168" column="1" />
+      <Breakpoint file="/Users/admin/ProjectsVS/Vision/Vision/Controllers/AdminController.cs" relfile="Vision/Controllers/AdminController.cs" line="293" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

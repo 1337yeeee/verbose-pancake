@@ -18,6 +18,7 @@ namespace Vision.Controllers
         [Route("Article/Index/{id:guid}")]
         public IActionResult Index(Guid id)
         {
+            var articles = _context.Articles.ToList();
             Article article = _context.Articles.Include(article => article.img).FirstOrDefault(article => article.id == id);
             Image img = article.img[0] ?? null;
             if(img != null)
@@ -36,7 +37,7 @@ namespace Vision.Controllers
                 article.AverageAssessment = assessments.Average(a => a.Rating);
             }
             
-            return View(article);
+            return View(new ViewModel { Article = article, Articles = articles, id = id});
         }
         [HttpPost]
         public IActionResult Assess(int rating, string articleId)

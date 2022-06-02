@@ -1,62 +1,132 @@
-﻿@model Article
+﻿@model ViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<html>
-    <head>    
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="~/css/site.css" />
+
+<head>
+    <link rel="stylesheet" href="~/css/fullArticle.css" />
 </head>
-@if(Model != null){
-	<div class = "container-fluid">
-		<div class = "article">
-			<div class="row">
-				<div class="col-6">
-					<div class="namearticle">
-					<p>@Model.name</p>
-					<p>Header: @Model.header</p>
-					</div>
-				</div>
-				<div class="col-6">
-					<div class="articletime">
-						<p>@Model.date</p>
-					</div>
-				</div>
-			</div>
-			<div class="articleauthor">
-				<p>Author: @Model.author?.name</p>
-			</div>
-			<div class="articleimage">
-				<img src = "@ViewBag.ImageDataUrl" />
-			</div>
-			<div class = "articletext">
-				<p>@Model.text</p>
-			</div>
-			<div class= "articleproduct">
-				@if(Model.productList?.Count != 0){
-					<a asp-controller="Product" asp-action="Index" asp-route-id = "@Model.productList?[0].id">@Model.productList?[0].name</a>
 
-				}
-			</div>
-		</div>
-	</div>
+@*<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+@if (Model != null)
+{
+    <div class="container-fluid">
+        <div class="article">
+            <div class="row">
+                <div class="col-6">
+                    <div class="namearticle">
+                        <p>@Model.name</p>
+                        <p>Header: @Model.header</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="articletime">
+                        <p>@Model.date</p>
+                    </div>
+                </div>
+            </div>
+            <div class="articleauthor">
+                <p>Author: @Model.author?.name</p>
+            </div>
+            <div class="articleimage">
+                <img src="@ViewBag.ImageDataUrl" />
+            </div>
+            <div class="articletext">
+                <p>@Model.text</p>
+            </div>
+            <div class="articleproduct">
+                @if (Model.productList?.Count != 0)
+                {
+                    <a asp-controller="Product" asp-action="Index" asp-route-id="@Model.productList?[0].id">@Model.productList?[0].name</a>
 
-<div class="rating-area">
-	<form asp-action = "Assess" method = "post">
-        <input type="radio" id="star-5" name="rating" value="5">
-	<label for="star-5" title="Оценка «5»"></label>	
-	<input  type="radio" id="star-4" name="rating" value="4">
-	<label for="star-4" title="Оценка «4»"></label>    
-	<input type="radio" id="star-3" name="rating" value="3">
-	<label for="star-3" title="Оценка «3»"></label>  
-	<input type="radio" id="star-2" name="rating" value="2">
-	<label for="star-2" title="Оценка «2»"></label>    
-	<input type="radio" id="star-1" name="rating" value="1">
-	<label for="star-1" title="Оценка «1»"></label>
-	<input asp-for="id" type="hidden" name = "articleId"/>
-	<button type = "submit" class="btn btn-primary">Send an assessment</button>
-    </form>
-	@if(Model.AverageAssessment != 0){
-		<p>Average rating: @Model.AverageAssessment</p>
-	}
-</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="rating-area">
+        <form asp-action="Assess" method="post">
+            <input type="radio" id="star-5" name="rating" value="5">
+            <label for="star-5" title="Оценка «5»"></label>
+            <input type="radio" id="star-4" name="rating" value="4">
+            <label for="star-4" title="Оценка «4»"></label>
+            <input type="radio" id="star-3" name="rating" value="3">
+            <label for="star-3" title="Оценка «3»"></label>
+            <input type="radio" id="star-2" name="rating" value="2">
+            <label for="star-2" title="Оценка «2»"></label>
+            <input type="radio" id="star-1" name="rating" value="1">
+            <label for="star-1" title="Оценка «1»"></label>
+            <input asp-for="id" type="hidden" name="articleId" />
+            <button type="submit" class="btn btn-primary">Send an assessment</button>
+        </form>
+        @if (Model.AverageAssessment != 0)
+        {
+            <p>Average rating: @Model.AverageAssessment</p>
+        }
+    </div>
 }
-</html>
+</html>*@
+
+<div id="banner" style="background:  url(@Model.Article.banner.ImageData), no-repeat, center center;">
+    <div class="naming-zone">
+        <div class="container-fluid" id="namecontainer">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12">
+                    <div class="naming">
+                        <h1>@Model.Article.name</h1>
+                        <h5>@Model.Article.header</h5>
+                        <p><a href="#">@Model.Article.author.name</a></p>
+                        <p><i>@Model.Article.date</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="Article">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <p>@Model.Article.text</p>
+                <div class="row product-in-art">
+                    <div class="col-md-6 link-container">
+                        <div class="card">
+                            <img src="https://static.street-beat.ru/upload/iblock/9cd/9cda04c98670b48a3616cff5fb2f38bd.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><b>Nike</b> Air Huarache</h5>
+                                <p class="card-text">Вдохновленные архивными моделями adidas, эти массивные кроссовки созданы привлекать внимание.</p>
+                                <a href="#" class="btn btn-primary stretched-link">Go see Air Huarache</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 link-container text-center">
+                        <div class="card">
+                            <img src="https://static.street-beat.ru/upload/iblock/7d4/7d465bd6d75b7a0ba2404dbd8f63f9b4.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><b>Adidas</b> Ozelia</h5>
+                                <p class="card-text">Кроссовки Nike Air Huarache — это популярная уличная модель, обеспечивающая удобную посадку и комфорт.</p>
+                                <a href="#" class="btn btn-primary stretched-link">Go see Ozelia</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="white-space">
+                </div>
+                @{ var articles = Model.Articles.Where(x => x.poster != null).ToList();
+					var article = articles[new Random().Next(0,articles.Count())];}
+                @if (article != null) {
+                    <div class="link-container text-center article-add">
+                        <a asp-controller="Article" asp-route-id="@article.id.ToString()"/>
+                            <img src="@article.poster.DataImgUrl" class="img-fluid">
+                            <p>@article.name<br>@article.header</p>
+                    </div>
+				}
+            </div>
+        </div>
+    </div>
+</div>

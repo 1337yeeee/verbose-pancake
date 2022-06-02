@@ -18,6 +18,8 @@ namespace Vision.Models {
 		public DateTime date { get; set; }
 		public string text { get; set; }
 		public List<Image> img { get; set; }
+		public Image banner { get; set; }
+		public Image poster { get; set; }
 		public List<Product> productList { get; set; }
 		public double AverageAssessment { get; set; }
 	}

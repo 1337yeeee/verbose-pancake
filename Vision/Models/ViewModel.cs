@@ -10,6 +10,9 @@ namespace Vision.Models {
 		public IEnumerable<Article> Articles { get; set; }
 		public IEnumerable<Author> Authors { get; set; }
 		public string ModelOfSearch { get; set; }
+		public Guid id { get; set; }
+		public string ImageDataUrl { get; set; }
+		public Article Article { get; set; }
 
 		public IEnumerable<User> Users { get; set; }
 

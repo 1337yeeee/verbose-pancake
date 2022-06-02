@@ -1,5 +1,61 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model ViewModel 
+
+
+<div class="conteiner">
+    <form method="post", asp-controller="Admin" asp-action="AddProduct">
+        @{ Product product;}
+        @for (int i = 0; i < Model.Products.Count(); i += 3) {
+        <div class="row justify-content-center">
+            <div class="col-3">
+                @{  if (i >= Model.Products.Count()) break;
+					product = Model.Products.ElementAt(i);
+					if (product == null) break;}
+                    <div class="card">
+                        <img src="@product.img.DataImgUrl" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><b>@product.brand</b>@product.name</h5>
+                            <p><i>@product.category.name</i></p>
+                            <p class="card-text">@product.price</p>
+                            @*<a href="#" class="btn btn-primary stretched-link">Go see Air Huarache</a>*@
+                            <input type="radio" id="btn-check[@i]" name="product" value="@product.id">
+                            <label for="btn-check[@i]">Add</label>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-3">
+                @{  if (i + 1 >= Model.Products.Count()) break;
+					product = Model.Products.ElementAt(i + 1);
+					if (product == null) break;}
+                <div class="card">
+                    <img src="@product.img.DataImgUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>@product.brand</b>@product.name</h5>
+                        <p><i>@product.category.name</i></p>
+                        <p class="card-text">@product.price</p>
+                        @*<a href="#" class="btn btn-primary stretched-link">Go see Air Huarache</a>*@
+                        <input type="radio" id="btn-check[@(i+1)]" name="product" value="@product.id">
+                        <label for="btn-check[@(i+1)]">Add</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                @{ if (i + 2 >= Model.Products.Count()) break;
+                    product = Model.Products.ElementAt(i + 2);
+                    if (product == null) break;}
+                <div class="card">
+                    <img src="@product.img.DataImgUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><b>@product.brand</b>@product.name</h5>
+                        <p><i>@product.category.name</i></p>
+                        <p class="card-text">@product.price</p>
+                        @*<a href="#" class="btn btn-primary stretched-link">Go see Air Huarache</a>*@
+                        <input type="radio" id="btn-check[@(i+2)]" name="product" value="@product.id">
+                        <label for="btn-check[@(i+2)]">Add</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    }
+        <input type="submit" placeholder="Отправить" />
+    </form>
+</div>
